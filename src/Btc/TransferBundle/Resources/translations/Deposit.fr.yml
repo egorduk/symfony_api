@@ -1,0 +1,64 @@
+deposit:
+  egopay:
+    title: 'DÉPÔT AVEC EGOPAY'
+  bitcoin:
+    title: 'Deposit your Bitcoins'
+    your_address: 'Envoyez vos pièces à cette adresse'
+    qrcode_address: 'CODE QR de l’adresse'
+  submit: Dépôt
+  please_select: 'Veuillez <strong>sélectionner le paiement</strong> de votre dépôt de devises:'
+  amount: 'Montant à déposer:'
+  maximum_amount: 'Montant de dépôt maximum depuis:'
+  fees: 'Frais de dépôt:'
+  astropay:
+    usd_amount: 'Montant USD:'
+    country: 'Pays:'
+  crypto:
+    offline: 'Crypto currency deposit is unavailable'
+    offline_desc: 'Crypto currency deposit is unavailable. Sorry for the inconvienence.'
+  coin:
+    title: 'DÉPOSER VOTRE CRYPTO-DEVISE'
+    your_address: '<strong>Envoyez vos pièces</strong> à cette adresse'
+    qrcode_address: 'CODE QR de l’adresse'
+    minimum: 'Dépôt minimum %currencyCode%:'
+    please_select: 'Veuillez <strong>sélectionner l’option de paiement</strong> de votre dépôt de devises:'
+    alert: '<strong>Une à deux heures</strong> peuvent être nécessaires pour que le réseau Bitcoin confirme la transaction.'
+  token:
+    title: 'Deposit your tokens'
+    your_address: <strong>Send your tokens</strong> to this address
+    alert: 'It may take up to <strong>1-2 hours</strong> for the blockchain network to confirm the transaction.'
+
+  title: 'DÉPÔT AVEC %bank_name%'
+currency:
+  ltc:
+    fullname: litecoin
+  btc:
+    fullname: bitcoin
+withdrawal:
+  coin:
+    title: 'RETRAIT %currencyCode%'
+    your_address: 'Your %currencyCode% wallet address'
+    please_select: "Veuillez <strong>sélectionner l’option de paiement</strong> de votre retrait\_:"
+  important_note: 'Remarque importante'
+  note: 'Le traitement des retraits importants peut prendre jusqu’à 24 heures.'
+  flash:
+    success: 'Withdrawal request is in progress.'
+    success_amount: 'Withdrawal request for %amount% placed'
+  current_balance: 'Votre solde actuel pouvant faire l’objet d’un retrait est de'
+  maximum: 'Montant de retrait maximum:'
+  address: 'adresse:'
+  amount: 'Montant à retirer:'
+action:
+  withdraw: 'RETRAIT %currencyCode%'
+coin:
+  request_new_address: 'DEMANDER UNE NOUVELLE ADRESSE'
+  deposit_addresses: 'Vos adresses de dépôt %currencyCode%'
+  table:
+    date: Date
+    address: Adresse
+wire:
+  first_name: Prénom
+  last_name: Nom
+  company: 'Nom de la société'
+  amount: Montant
+  comment: 'Commentaire (optionnel)'

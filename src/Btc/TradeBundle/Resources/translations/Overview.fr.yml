@@ -1,0 +1,14 @@
+overview:
+  title: 'Vue d''ensemble'
+  live_trades:
+    title: 'Live Trades'
+    time_since: 'Time since'
+    amount: Montant
+    price: Cours
+  live_orderbook:
+    title: 'Live Order Book'
+    bid_amount: 'Bid Amount'
+    bid_price: 'Bid Price'
+    ask_amount: 'Ask Amount'
+    ask_price: 'Ask Price'
+    no_orders: 'No Orders in the market'

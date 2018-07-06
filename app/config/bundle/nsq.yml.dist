@@ -1,0 +1,9 @@
+exmarkets_nsq:
+  connections:
+    server1:
+      host: 127.0.0.1
+      port: 4150
+    # server2:
+    #   host: 127.0.0.1
+    #   port: 4188
+

@@ -1,0 +1,23 @@
+{% extends 'BtcAccountBundle::account_layout.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $('.optional').css('cursor', 'pointer');
+        $(".optional").click(function () {
+            $header = $(this);
+            $content = $header.next();
+            $glyphicon = $("#toggle");
+            $content.slideToggle(500, function () {
+                if ($glyphicon.hasClass("glyphicon-collapse-down")) {
+                    $glyphicon.removeClass('glyphicon-collapse-down');
+                    $glyphicon.addClass('glyphicon-collapse-up');
+                    $glyphicon = $(".glyphicon-collapse-up");
+                } else {
+                    $glyphicon.addClass('glyphicon-collapse-down');
+                    $glyphicon.removeClass('glyphicon-collapse-up');
+                }
+            });
+        });
+    </script>
+{% endblock %}

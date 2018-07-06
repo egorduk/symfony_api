@@ -1,0 +1,25 @@
+services:
+  timestampable:
+    class: Gedmo\Timestampable\TimestampableListener
+    tags:
+      - { name: doctrine.event_subscriber, connection: default }
+    calls:
+      - [ setAnnotationReader, [ @annotation_reader ] ]
+
+  sluggable:
+    class: Gedmo\Sluggable\SluggableListener
+    tags:
+      - { name: doctrine.event_subscriber, connection: default }
+    calls:
+      - [ setAnnotationReader, [ @annotation_reader ] ]
+
+  translatable:
+    class: Gedmo\Translatable\TranslatableListener
+    tags:
+      - { name: doctrine.event_subscriber, connection: default }
+    calls:
+      - [ setAnnotationReader, [ @annotation_reader ] ]
+      - [ setDefaultLocale, [ %locale% ] ]
+      - [ setTranslatableLocale, [ %locale% ] ]
+      - [ setTranslationFallback, [ true ] ]
+      - [ setPersistDefaultLocaleTranslation, [false] ]

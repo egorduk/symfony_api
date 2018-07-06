@@ -1,0 +1,40 @@
+services:
+  btc_transfer.repository.deposit:
+    class: Doctrine\Common\Persistence\ObjectRepository
+    factory_service: doctrine
+    factory_method: getRepository
+    arguments: ["BtcCoreBundle:Deposit"]
+
+  btc_transfer.repository.withdrawal:
+    class: Doctrine\Common\Persistence\ObjectRepository
+    factory_service: doctrine
+    factory_method: getRepository
+    arguments: ["BtcCoreBundle:Withdrawal"]
+
+  btc_transfer.repository.btc.coin_transaction:
+    class: Doctrine\Common\Persistence\ObjectRepository
+    factory_service: doctrine
+    factory_method: getRepository
+    arguments: ["BtcCoreBundle:CoinTransaction"]
+    calls:
+       - [setCurrencyByCode, ['btc']]
+
+  btc_transfer.repository.ltc.coin_transaction:
+    class: Doctrine\Common\Persistence\ObjectRepository
+    factory_service: doctrine
+    factory_method: getRepository
+    arguments: ["BtcCoreBundle:CoinTransaction"]
+    calls:
+       - [setCurrencyByCode, ['ltc']]
+
+  deposits:
+    alias: btc_transfer.repository.deposit
+
+  withdrawals:
+    alias: btc_transfer.repository.withdrawal
+
+  btc.coin_transaction:
+    alias: btc_transfer.repository.btc.coin_transaction
+
+  ltc.coin_transaction:
+    alias: btc_transfer.repository.btc.coin_transaction

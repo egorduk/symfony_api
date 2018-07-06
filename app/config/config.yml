@@ -1,0 +1,108 @@
+imports:
+  - { resource: security.yml }
+  - { resource: doctrine_extensions.yml }
+  - { resource: repositories.yml }
+  - { resource: bundle/cors.yml }
+
+# service aliases
+services:
+  db: @doctrine.dbal.default_connection
+  em: @doctrine.orm.entity_manager
+
+framework:
+  #esi: ~
+  translator:
+    fallback: %locale%
+  secret: %secret%
+  router:
+    resource: "%kernel.root_dir%/config/routing.yml"
+    strict_requirements: ~
+  form: ~
+  csrf_protection: ~
+  validation:
+    enable_annotations: true
+    # strict_email: true # otherwise email@gmail..com passes validation
+  templating:
+    engines: ['twig']
+    #assets_version: SomeVersionScheme
+  default_locale: %locale%
+  trusted_proxies: ~
+  session:
+    save_path: null # use default php.ini settings if storage is file
+    cookie_lifetime: %session_lifetime% # note php setting: session.gc_maxlifetime
+    cookie_domain: %router.request_context.host% # restrict to specific domain
+    cookie_secure: true # allow only https
+    cookie_httponly: true # allow only http protocol access
+  fragments: ~
+
+# Doctrine Configuration
+doctrine:
+  dbal:
+    driver:   %database_driver%
+    host:     %database_host%
+    port:     %database_port%
+    dbname:   %database_name%
+    user:     %database_user%
+    password: %database_password%
+    charset:  UTF8
+    types:
+      datetime: Btc\DoctrineExtensions\DBAL\Types\UTCDateTimeType
+
+  orm:
+    auto_generate_proxy_classes: %kernel.debug%
+    entity_managers:
+      default:
+        repository_factory: core.entity_repository.factory
+        auto_mapping: true
+        mappings:
+          translatable:
+            type: annotation
+            alias: Gedmo
+            prefix: Gedmo\Translatable\Entity
+            dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity/MappedSuperclass"
+          market_component_model_mapping:
+            type: annotation
+            prefix: Btc\Component\Market\Model
+            dir: "%kernel.root_dir%/../vendor/php-libs/market-component/Btc/Component/Market/Model"
+            #is_bundle: false
+        dql:
+            string_functions:
+              ifnull: Btc\FrontendApiBundle\DQL\IfNullFunction
+              UNIX_TIMESTAMP: Btc\FrontendApiBundle\DQL\UnixTimestamp
+
+doctrine_migrations:
+  dir_name: %kernel.root_dir%/../vendor/php-libs/core-bundle/Btc/CoreBundle/Migrations
+  namespace: Btc\CoreBundle\Migrations
+  table_name: migration_versions
+  name: Exmarkets migrations
+
+btc_common:
+  redis:
+    host: %redis_host%
+    port: %redis_port%
+    timeout: 0.5
+  app: frontend
+  namespace: "%cache_namespace%"
+
+fos_rest:
+  param_fetcher_listener: true
+  routing_loader:
+    default_format: json
+    include_format: false
+  exception:
+    codes:
+      'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404
+      'Doctrine\ORM\OptimisticLockException': HTTP_CONFLICT
+    messages:
+      'Symfony\Component\Routing\Exception\ResourceNotFoundException': true
+  allowed_methods_listener: true
+  access_denied_listener:
+    json: true
+  disable_csrf_role: ROLE_API
+
+nelmio_api_doc: ~
+
+sentry:
+  dsn: %sentry_dsn%
+  options:
+     error_types: E_ALL & ~E_DEPRECATED & ~E_NOTICE

@@ -1,0 +1,43 @@
+{% trans_default_domain 'Deposit' %}
+{% if deposits|length > 0 %}
+<div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h3>{{ "deposit.headline.wire_transfer"|trans }}</h3>
+      </div>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>{{ 'deposit.wire.label.date'|trans }}</th>
+            <th>{{ 'deposit.wire.label.amount'|trans }}</th>
+            <th>{{ 'deposit.wire.label.currency'|trans }}</th>
+            <th>{{ 'deposit.wire.label.status'|trans }}</th>
+            <th>{{ 'deposit.wire.label.actions'|trans }}</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for deposit in deposits %}
+          <tr>
+            <td>{{ deposit.createdAt|date('Y-m-d H:i:s') }}</td>
+            <td>{{ deposit.amount }}</td>
+            <td>{{ deposit.wallet.currency.code }}</td>
+            <td>Pending</td>
+            <td>
+                <a href="{{ path('btc_wire_transfer_deposits_show', {'id': deposit.id}) }}" class="btn btn-primary btn-xs">
+                  {{ 'deposit.wire.label.show_details'|trans }}
+                </a>
+              {% if deposit.status == 'new' %}
+                <a href="{{ path('btc_wire_transfer_deposits_cancel', {'id': deposit.id}) }}" class="btn btn-orange btn-xs">
+                 {{ 'deposit.wire.label.cancel'|trans }}
+                </a>
+              {% else %}
+
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</div>
+{% endif %}

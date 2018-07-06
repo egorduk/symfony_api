@@ -1,0 +1,37 @@
+{% trans_default_domain 'Withdrawal' %}
+
+{% if pending is not empty %}
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <div class="page-header">
+            <h4>{{ 'withdrawals.pending'|trans }}</h4>
+        </div>
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>{{ 'table.head.bank'|trans }}</th>
+                <th>{{ 'table.head.date'|trans }}</th>
+                <th>{{ 'table.head.amount'|trans }}</th>
+                <th>{{ 'table.head.currency'|trans }}</th>
+                <th>{{ 'table.head.status'|trans }}</th>
+                <th>{{ 'table.head.action'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for withdrawal in pending %}
+                {% set status = ("transactions.status." ~ withdrawal.status)|trans %}
+            <tr>
+                <td>{{ withdrawal.bank.name }}</td>
+                <td>{{ withdrawal.createdAt|date('Y-m-d H:i:s') }}</td>
+                <td>{{ withdrawal.amount }}</td>
+                <td>{{ withdrawal.currencyCode }}</td>
+                <td>{{ status }}</td>
+                <td><a href="{{ path('btc_transfer_withdrawal_cancel', {'withdrawal' : withdrawal.id}) }}"
+                            class="btn btn-xs btn-danger">{{ 'withdrawal.action.cancel'|trans }}</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}

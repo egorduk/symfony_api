@@ -1,0 +1,64 @@
+deposit:
+  egopay:
+    title: 'MAG-DEPOSIT GAMIT ANG EGOPAY'
+  bitcoin:
+    title: 'Deposit your Bitcoins'
+    your_address: 'I-send ang iyong coins sa address na ito'
+    qrcode_address: 'QR CODE para sa address'
+  submit: Deposit
+  please_select: 'Pumili ng  <strong>payment option </strong> para sa iyong currency deposit:'
+  amount: 'Halaga ng idedeposito:'
+  maximum_amount: 'Maximum deposit amount from:'
+  fees: 'Bayad sa pag deposito:'
+  astropay:
+    usd_amount: 'USD amount:'
+    country: 'Bansa:'
+  crypto:
+    offline: 'Crypto currency deposit is unavailable'
+    offline_desc: 'Crypto currency deposit is unavailable. Sorry for the inconvienence.'
+  coin:
+    title: 'MAG-DEPOSIT GAMIT ANG IYONG CRYPTOCURRENCY'
+    your_address: '<strong>I-send ang iyong coins</strong> sa address na ito'
+    qrcode_address: 'QR CODE para sa address:'
+    minimum: 'Pinakamababang halaga ng deposit sa %currencyCode%:'
+    please_select: '<strong>Pumili ng payment</strong> option para sa iyong currency deposit:'
+    alert: 'Maaaring umabot ng <strong>1-2 oras</strong> ang bitcoin network para makumpirma ang transaksyon.'
+  token:
+    title: 'Deposit your tokens'
+    your_address: <strong>Send your tokens</strong> to this address
+    alert: 'It may take up to <strong>1-2 hours</strong> for the blockchain network to confirm the transaction.'
+
+  title: 'MAG-DEPOSIT GAMIT ANG %bank_name%'
+currency:
+  ltc:
+    fullname: litecoin
+  btc:
+    fullname: bitcoin
+withdrawal:
+  coin:
+    title: 'Withdraw %currencyCode%'
+    your_address: 'Your %currencyCode% wallet address'
+    please_select: 'Pumili ng <strong>payment option</strong> para sa iyong withdrawal:'
+  important_note: 'Mahalagang paalala'
+  note: 'Ang mga malalaking withdrawals ay maaaring umabot ng hanggang 24 oras sa pag proseso'
+  flash:
+    success: 'Withdrawal request is in progress.'
+    success_amount: 'Withdrawal request for %amount% placed'
+  current_balance: 'Ang iyong kasalukuyang balanse na maaaring i-withdraw ay'
+  maximum: 'Pinakamataas na withdrawal amount:'
+  address: 'address:'
+  amount: 'Halaga ng i-wiwithdraw:'
+action:
+  withdraw: 'Withdraw %currencyCode%'
+coin:
+  request_new_address: 'Mag-request ng bagong address'
+  deposit_addresses: 'Ang iyong mga %currencyCode% deposit address'
+  table:
+    date: Petsa
+    address: Address
+wire:
+  first_name: 'First Name'
+  last_name: Apelyido
+  company: 'Pangalan ng Kumpanya'
+  amount: Amount
+  comment: 'Comment (optional)'

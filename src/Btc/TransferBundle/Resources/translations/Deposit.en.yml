@@ -1,0 +1,97 @@
+deposit:
+  headline:
+    wire_transfer: "International deposit list"
+  egopay:
+    title: "Deposit with EgoPay"
+  bitcoin:
+    title: "Deposit your Bitcoins"
+    your_address: 'Send your bitcoins to this address'
+    qrcode_address: 'QRCODE of address'
+  submit: "Deposit"
+  please_select: 'Please <strong>select payment</strong> for your currency deposit:'
+  amount: 'Amount to deposit:'
+  maximum_amount: 'Maximum deposit amount from:'
+  fees: 'Deposit fees:'
+  cancel: 'Cancel'
+  details: 'View Details'
+  title: 'Deposit with %bank_name%'
+  limit: "Allowed to deposit:"
+
+  astropay:
+    usd_amount: 'USD amount:'
+    country: 'Country:'
+
+  crypto:
+    offline: 'Crypto currency deposit is unavailable'
+    offline_desc: 'Crypto currency deposit is unavailable. Sorry for the inconvienence.'
+  coin:
+    title: 'Deposit your cryptocurrency'
+    your_address: <strong>Send your coins</strong> to this address
+    qrcode_address: 'QR CODE for address:'
+    minimum: 'Minimum deposit to %currencyCode%:'
+    please_select: 'Please <strong>select payment</strong> option for your currency deposit:'
+    alert: 'It may take up to <strong>1-2 hours</strong> for the blockchain network to confirm the transaction.'
+  token:
+    title: 'Deposit your tokens'
+    your_address: <strong>Send your tokens</strong> to this address
+    alert: 'It may take up to <strong>1-2 hours</strong> for the blockchain network to confirm the transaction.'
+
+  wire:
+    label:
+      date: "Date"
+      currency: "Currency"
+      amount: "Amount"
+      status: "Status"
+      actions: "Actions"
+      show_details: "Show details"
+      cancel: "Cancel"
+
+currency:
+  ltc:
+    fullname: litecoin
+  btc:
+    fullname: bitcoin
+
+headers:
+  your_limits: "Your deposit limits:"
+
+withdrawal:
+  coin:
+    title: 'Withdraw %currencyCode%'
+    your_address: 'Your %currencyCode% wallet address'
+    please_select: 'Please <strong>select payment</strong> option for your withdrawal:'
+  important_note: 'Important note'
+  note: 'Large withdrawals may take up to 24 hours to process'
+  flash:
+    success: 'Withdrawal request is in progress.'
+    success_amount: 'Placed a withdrawal request for %amount%'
+  current_balance: 'Your current available balance to withdraw is'
+  maximum: "Maximum withdrawal amount:"
+  address: 'address:'
+  amount: 'Amount to withdraw:'
+
+action:
+  withdraw: 'Withdraw %currencyCode%'
+
+coin:
+  request_new_address: 'Request new address'
+  deposit_addresses: 'Your %currencyCode% deposit addresses'
+  table:
+    date: 'Date'
+    address: 'Address'
+
+wire:
+  first_name: "First Name"
+  last_name: "Last Name"
+  company: "Company Name"
+  amount: "Amount"
+  comment: "Comment (optional)"
+  deposit:
+    list: International deposit list
+
+table:
+  head:
+    date: Date
+    amount: Amount
+    currency: Currency
+    status: Status

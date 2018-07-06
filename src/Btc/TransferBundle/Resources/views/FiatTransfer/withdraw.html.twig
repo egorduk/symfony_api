@@ -1,0 +1,132 @@
+{% extends 'BtcTransferBundle::layout.html.twig' %}
+{% trans_default_domain 'Withdrawal' %}
+{% set page_title = 'withdrawal.title'|trans({'%bank%' : bank.name}) %}
+{% block content %}
+    <div class="page-header">
+        <h1>{{ page_title }}</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+
+            {% include("BtcAccountBundle:widgets:flash_messages.html.twig") %}
+            {% form_theme form 'BtcUserBundle:Form:fields.html.twig' %}
+
+            <form
+                id="withdrawal-form"
+                action="{{ path('btc_transfer_withdrawal_to', {'bank': bank.slug}) }}"
+                method="POST"
+                {% for currency, fee in model.fees.feeList %}
+                    {{ 'data-' ~ currency ~ '=' ~ fee|json_encode() }}
+                {% endfor %}
+            >
+            <div class="form-text">
+                {# <p>{{ 'withdrawal.please_select'|trans|raw }}</p>
+                <div class="row row-sm">
+                    <div class="col-sm-12">
+                        <p><select class="form-control js-bank-selector">
+                            {% for b in banks %}
+                                {% set location = path("btc_transfer_withdrawal_to", {"bank": b.slug}) %}
+                                <option data-location="{{ location }}" {% if bank.name == b.name %} selected {% endif %}>{{ b.name }}</option>
+                            {% endfor %}
+                        </select></p>
+                    </div>
+                </div>
+
+                <div class="js-withdrawals" data-source="{{ model.paymentLimits.balances|json_encode() }}">
+                  <p>{{ 'withdrawal.available_balance'|trans }} <strong data-name="balance"></strong></p>
+                  <p>{{ 'withdrawal.limit'|trans }} <strong data-name="limit"></strong></p>
+                </div>
+
+                <hr> #}
+                {% include "BtcTransferBundle:FiatTransfer:withdrawals/form/" ~ bank.slug ~ ".html.twig" %}
+
+                {% if app.user.hasTOTP %}
+                    <div class="row row-sm">
+                        {{ form_label(form.authCode, null, {'label_attr': {'class': 'control-label col-sm-5'}})}}
+                        <div class="col-sm-7">
+                            <p>
+                                {{ form_widget(form.authCode, {'attr': {'class': 'form-control'} }) }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-danger">
+                        {{ form_errors(form.authCode) }}
+                    </div>
+                {% elseif app.user.hasHOTP %}
+                    <div class="row row-sm">
+                        {{ form_label(form.authCode, null, {'label_attr': {'class': 'control-label col-sm-5'}})}}
+                        <div class="col-sm-4">
+                            <p>
+                                {{ form_widget(form.authCode, {'attr': {'class': 'form-control'} }) }}
+                            </p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>
+                                {{ form_widget(form.sendSms) }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-danger">
+                        {{ form_errors(form.authCode) }}
+                    </div>
+                {% endif %}
+                {{ form_rest(form) }}
+                <div class="row row-sm">
+                    <div class="col-sm-7 col-sm-offset-5">
+                      {{ form_widget(form.save) }}
+                    </div>
+                </div>
+
+                <div class="text-danger">
+                  {# @todo Why foreign account and amount are so special? #}
+                  {% if bank.slug not in ['international-wire-transfer', 'moneygram', 'westernunion'] %}
+                    {{ form_errors(form.foreignAccount) }}
+                  {% endif %}
+                    {{ form_errors(form.amount) }}
+                    {{ form_errors(form) }}
+                </div>
+            </div>
+            </form>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="well well-dark">
+            <h4 class="well-name">{{ 'headers.your_limits'|trans }}</h4>
+            {% include "BtcTransferBundle::payment_limits.html.twig" %}
+          </div>
+          {% include "BtcTransferBundle::payment_fees.html.twig" %}
+          {% include 'BtcTransferBundle:FiatTransfer/withdrawals/notices:' ~ bank.slug ~ '.html.twig' %}
+        </div>
+    </div>
+    {% include "BtcTransferBundle:FiatTransfer:pending_withdrawals.html.twig" %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+      $(document).ready(function() {
+        var availability = $('.js-withdrawals');
+        var balances = availability.data('source');
+        var phone = $('.js-phone-input').intlTelInput();
+
+        $('.js-currency-selector').on('change', function() {
+          var c = $(this).find(':selected').text();
+          var fmt = {symbol: c, format: "%v %s"};
+          availability.find('[data-name="balance"]').text(accounting.formatMoney(balances[c].available, fmt));
+
+          if (balances[c].unlimited) {
+            availability.find('[data-name="limit"]').parent().hide();
+          } else {
+            availability.find('[data-name="limit"]').text(accounting.formatMoney(balances[c].allowed, fmt)).parent().show();
+          }
+        }).change();
+
+        $(".js-bank-selector").change(function () {
+            window.location.href = $(this).find('option:selected').data('location');
+        });
+
+        $("#withdrawal-form").paymentFees();
+      });
+    </script>
+{% endblock %}

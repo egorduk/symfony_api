@@ -1,0 +1,184 @@
+{
+  "name": "frontend",
+  "type": "project",
+  "description": "BTC-X frontend application",
+
+  "autoload": {
+    "psr-4": {
+      "Symfony\\Bridge\\Doctrine\\": "src/Symfony/Bridge/Doctrine/",
+      "Symfony\\Bridge\\Monolog\\": "src/Symfony/Bridge/Monolog/",
+      "Symfony\\Bridge\\ProxyManager\\": "src/Symfony/Bridge/ProxyManager/",
+      "Symfony\\Bridge\\Swiftmailer\\": "src/Symfony/Bridge/Swiftmailer/",
+      "Symfony\\Bridge\\Twig\\": "src/Symfony/Bridge/Twig/",
+      "Symfony\\Bundle\\": "src/Symfony/Bundle/",
+      "Symfony\\Component\\": "src/Symfony/Component/"
+    },
+    "psr-0": {
+      "Btc\\": "src/"
+    }
+  },
+
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@git.besk.com:exm/php-libs/common-bundle.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@git.besk.com:exm/php-libs/core-bundle.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@git.besk.com:exm/php-libs/market-component.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@git.besk.com:exm/php-libs/nsq-bundle.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@git.besk.com:exm/php-libs/pagination-bundle.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@git.besk.com:exm/php-libs/common-bundle.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@git.besk.com:exm/php-libs/paymentcore-bundle.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@git.besk.com:exm/php-libs/news-bundle.git"
+    }
+  ],
+
+  "require": {
+    "php": ">=5.4.0",
+    "ext-bcmath": "*",
+    "ext-curl": "*",
+    "ext-mbstring": "*",
+    "ext-pdo": "*",
+    "ext-pdo_mysql": "*",
+    "ext-sockets": "*",
+
+    "symfony/symfony": "~2.7.10",
+    "symfony/swiftmailer-bundle": "2.3.7",
+	"symfony/twig-bundle": "~2.5",
+	"symfony/twig-bridge": "~2.5",
+	"symfony/form": "~2.6",
+	"symfony/options-resolver": "~2.1",
+	"symfony/event-dispatcher": "~2.7",
+	"symfony/property-access": "2.2.1",
+	"symfony/framework-bundle": "~2.4",
+	"symfony/translation": "2.2.1",
+	"symfony/stopwatch": "^2.5",
+	"symfony/routing": "^2.7",
+	"symfony/http-kernel": "~2.4",
+	"symfony/filesystem": "^2.4",
+	"symfony/templating": "^2.7",
+	"symfony/dependency-injection": "~2.4",
+	"symfony/config": "~2.3",
+	"symfony/http-foundation": "^2.7",
+	"symfony/intl": "~2.7.25",
+	"symfony/process": "~2.2",
+
+    "sensio/distribution-bundle": "3.0.6",
+
+    "twig/extensions": "1.1.0",
+    "twig/twig": "1.x-dev",
+
+    "doctrine/common": "2.7.3",
+
+    "incenteev/composer-parameter-handler": "2.1.0",
+
+    "php-libs/market-component": "dev-dev",
+    "php-libs/core-bundle": "dev-dev",
+    "php-libs/common-bundle": "dev-dev",
+    "php-libs/pagination-bundle": "dev-dev",
+    "php-libs/paymentcore-bundle": "dev-dev",
+    "php-libs/nsq-bundle": "dev-dev",
+    "php-libs/news-bundle": "dev-dev",
+
+    "gedmo/doctrine-extensions": "2.3.12",
+
+    "knplabs/knp-markdown-bundle": "~1.3",
+
+    "ircmaxell/password-compat": "1.0.3",
+    "rych/otp": "1.1.0",
+
+	"guzzlehttp/guzzle": "~6.3.0",
+
+    "sentry/sentry": "~1.8.2",
+    "sentry/sentry-symfony": "~0.7",
+
+    "mailgun/mailgun-php": "2.4.1",
+
+    "twilio/sdk": "3.12.6",
+
+    "jms/serializer-bundle": "2.2",
+
+    "friendsofsymfony/rest-bundle": "~2.3.0",
+    "nelmio/cors-bundle": "~1.5.0",
+    "nelmio/api-doc-bundle": "~2.11",
+    "namshi/jose": "~7.2.0"
+  },
+  "require-dev": {
+    "doctrine/annotations": "~1.0",
+    "doctrine/data-fixtures": "~1.2",
+    "doctrine/dbal": "~2.4",
+    "doctrine/orm": "~2.4,>=2.4.5",
+    "doctrine/doctrine-bundle": "~1.2",
+    "doctrine/doctrine-migrations-bundle": "1.3.1",
+
+	"symfony/console": "~2.1",
+	"symfony/debug": "2.8.34",
+	"symfony/finder": "~2.1",
+	"friendsofphp/php-cs-fixer": "~2.1",
+	"symfony/var-dumper": "3.4.4",
+
+    "monolog/monolog": "1.23.0",
+
+    "sensio/generator-bundle": "2.4.0",
+    "sensio/framework-extra-bundle": "~3.0",
+
+    "behat/behat": "3.0.14",
+    "behat/symfony2-extension": "2.0.0",
+    "behat/mink-extension": "2.0.1",
+    "behat/mink-browserkit-driver": "1.2.0",
+    "behat/mink": "1.6.0",
+
+    "phpspec/phpspec": "3.4.3",
+    "phpspec/prophecy": "1.7.3"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+      "Btc\\ComposerBootstrap::binaries"
+    ],
+    "post-update-cmd": [
+      "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+      "Btc\\ComposerBootstrap::binaries"
+    ]
+  },
+  "config": {
+    "bin-dir": "bin",
+    "secure-http": false
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "symfony-app-dir": "app",
+    "symfony-web-dir": "web",
+    "incenteev-parameters": {
+      "file": "app/config/parameters.yml"
+    },
+    "branch-alias": {
+      "dev-master": "2.7-dev"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+withdrawal:
+  amount:
+    blank: "Enter your amount you wish to withdraw"
+    greater_than_zero: "Too small amount to withdraw."
+    not_enough: "Not enough balance"
+    minimum: "Minimum withdrawable amount is %amount% %currency%"
+    payment_limit: "You may withdraw an amount within your limits only."
+    limit:
+      anti_money_laundering: "Check the allowed withdraw limits in our anti-money laundering policy"
+      unverified_limit: "Please verify your account to withdraw more funds to this Gateway"
+  account:
+    blank: "Destination account can't be blank"
+    invalid: "Your destination account is not valid"
+  insufficient:
+    balance: "Insufficient balance"
+
+deposit:
+  amount:
+    limit: "Please verify your account to deposit more funds from this Gateway"
+    blank: "Enter amount you wish to deposit"
+    greater_than_zero: "Amount should be greater than 0"
+    minimum: "Minimum amount to deposit is %amount% %currency%"
+    payment_limit: "You may deposit an amount within your limits only."
+  country:
+    blank: "Country must be chosen."
+
+comment:
+  max:
+    limit: "Maximum length of comment is 2000 characters"

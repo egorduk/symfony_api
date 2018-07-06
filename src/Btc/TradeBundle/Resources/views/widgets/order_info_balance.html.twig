@@ -1,0 +1,14 @@
+{% trans_default_domain 'Trade' %}
+
+<div class="order-name">
+    <div class="clearfix">
+        <div class="pull-right info-balance">
+            <label>{{ 'panels.balance.available'|trans }}:</label> <span class="blue">{{ balance.available }}</span>
+        </div>
+        <div class="h4"><span class="circle-border {% if order_action == 'buy' %}green{% else %}orange{% endif %}"></span> {{ ('order.action.'~order_action)|trans }} {{ base_currency().code }}</div>
+        <div class="pull-right info-balance">
+            <div class="item-info"><label>{{ 'panels.balance.reserved'|trans }}: </label> <span class="white">{{ balance.reserved }}</span></div>
+            <div class="item-info"><label>{{ 'panels.balance.total'|trans }}: </label> <span class="white">{{ balance.total }}</span></div>
+        </div>
+    </div>
+</div>

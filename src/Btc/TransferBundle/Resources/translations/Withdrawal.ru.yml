@@ -1,0 +1,49 @@
+withdrawal:
+  title: 'ВЫПОЛНИТЬ ВЫПЛАТУ С ПОМОЩЬЮ %bank%'
+  egopay:
+    title: 'ВЫПОЛНИТЬ ВЫПЛАТУ С ПОМОЩЬЮ EGOPAY'
+  submit: ВЫПЛАТА
+  form:
+    foreign_account: Адрес
+    auth_code: 'Код аутентификации'
+  error:
+    invalid_address: 'Wallet address is not valid'
+  flash:
+    success_amount: 'Withdrawal request for %amount% is scheduled for processing.'
+  please_select: 'Выберите <strong>вариант оплаты</strong> для получения выплаты:'
+  available_balance: 'Available balance'
+  amount: 'Сумма для выплаты:'
+  fees: 'Сборы за выплату:'
+headers:
+  anti_money_laundering: 'Максимальная сумма выплат согласно нашей политике борьбы с легализацией преступных доходов:'
+  unverified_limits: 'Максимальная сумма выплат для пользователей, не прошедших проверку:'
+important_notice: 'Важное примечание.'
+aml_note: "Согласно нашей политике борьбы с легализацией преступных доходов, пользователь может получить к выплате только сумму, равную или менее суммы, внесенной через конкретный шлюз. Это правило не применяется к деньгам, заработанным в ходе торговле на нашей платформе. ПРИМЕР. Если Вы внесли 10\_000\_долларов США через систему EgoPay и позже получили прибыль 1000\_долларов США, Вы сможете получить к выплате либо 11\_000\_долларов США (взнос + прибыль) через систему EgoPay, либо 10\_000\_долларов США (взнос) через систему EgoPay и 1000\_долларов США (прибыль) через любой другой платежный шлюз."
+note: "Обратите также внимание, что в настоящее время обработка всех выплат на нашей платформе осуществляется вручную. Это означает, что выполнение Вашего запроса на выплату может занять до 24\_часов при использовании систем Payza и EgoPay и до 48\_часов при использовании систем Perfect Money и OKPay."
+wire:
+  comment: Комментарии
+  amount: 'Сумма*'
+  beneficiary_account_number: 'Номер счета*'
+  beneficiary_account_name: 'Имя*'
+  beneficiary_account_address: 'Улица, номер дома, номер почтового ящика*'
+  beneficiary_account_city: 'Город*'
+  beneficiary_account_country: 'Страна*'
+  beneficiary_account_state: Штат/область
+  beneficiary_account_postal_code: 'Почтовый код/индекс*'
+  beneficiary_bank_name: 'Название банка*'
+  beneficiary_bank_code: 'SWIFT/BIC*'
+  beneficiary_bank_address: 'Улица, номер дома, номер почтового ящика*'
+  beneficiary_bank_other_info: 'Other info'
+  beneficiary_bank_city: 'Город*'
+  beneficiary_bank_state: Штат/область
+  beneficiary_bank_postal_code: 'Почтовый код/индекс*'
+  beneficiary_bank_country: 'Страна*:'
+  correspondent_bank_account: 'Банковский счет'
+  correspondent_bank_name: 'Название банка'
+  correspondent_bank_code: 'Код банка'
+  correspondent_bank_address: 'Улица, номер дома, номер почтового ящика'
+  correspondent_bank_other_info: 'Other info'
+  correspondent_bank_city: Город
+  correspondent_bank_state: Штат/область
+  correspondent_bank_postal_code: 'Почтовый код/индекс'
+  correspondent_bank_country: Страна

@@ -1,0 +1,122 @@
+{% trans_default_domain 'Trade' %}
+<div class="quick-stake">
+    <div class="col-nav hide-desktop">
+        <div class="btn-group" role="group">
+            <ul role="tablist">
+                <li role="presentation" class="active"><a class="btn btn-green btn-control" href="#quick-buy-tab" aria-controls="quick-buy-tab" role="tab" data-toggle="tab">
+                        Buy</a></li>
+                <li role="presentation"><a class="btn btn-orange btn-control" href="#quick-sell-tab" aria-controls="quick-sell-tab" role="tab" data-toggle="tab">
+                        Sell</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row row-lg tab-content">
+        <div role="tabpanel"
+             class="tab-pane fade active in show-desktop col-sm-6 col-full-tablet border-right"
+             data-available-cash="232.13"
+             id="quick-buy-tab">
+            <div class="quick-heading">
+                <span class="h4">{{ quote_currency().code }}</span>
+                <div class="control-label quick-info">Available: <span class="blue">{{ '232.13'|fmt_quote }}</span></div>
+                <div class="control-label quick-info">Reserved: <span class="white">{{ '0'|fmt_quote }}</span></div>
+                <div class="control-label quick-info">Total: <span class="white">{{ '232.13'|fmt_quote }}</span></div>
+            </div>
+            <div class="quick-form">
+                <div class="row row-md">
+                    <div class="col-sm-8">
+                        <div class="quick-radio-group">
+                            <div class="box-control">
+                                <div class="box-checkbox green"><input type="radio" checked name="quick-buy" value="0" id="quick-buy1"><label for="quick-buy1"></label></div>
+                                <div class="box-checkbox green small"><input type="radio" name="quick-buy" value="25" id="quick-buy2"><label for="quick-buy2"></label></div>
+                                <div class="box-checkbox green"><input type="radio" name="quick-buy" value="50" id="quick-buy3"><label for="quick-buy3"></label></div>
+                                <div class="box-checkbox green small"><input type="radio" name="quick-buy" value="75" id="quick-buy4"><label for="quick-buy4"></label></div>
+                                <div class="box-checkbox green"><input type="radio" name="quick-buy" value="100" id="quick-buy5"><label for="quick-buy5"></label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-md form-row">
+                    <form action="{{ path('btc_trade_order_market') }}" {{ form_enctype(buyForm) }} method="POST" role="form">
+                        <div class="col-sm-8">
+                            <div class="row row-sm">
+                                <div class="col-sm-6">
+                                    <div class="box-control">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" data-type="amo" name="btc_trade_limit_order_buy[amount]" value="0.00">
+                                            <span class="input-group-addon">{{ base_currency().code }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="box-control">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" data-type="ask" name="btc_trade_limit_order_buy[askedUnitPrice]" value="0.00">
+                                            <span class="input-group-addon">{{ quote_currency().code }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <button type="submit" class="btn btn-green btn-control btn-block"><span class="hide-tablet">{{ 'panels.quick_buy_sell.quick'|trans }}</span> {{ 'order.action.buy'|trans }} {{ base_currency().code }}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel"
+             class="tab-pane fade in show-desktop col-sm-6 col-full-tablet"
+             data-available-cash="17.00005601"
+             id="quick-sell-tab">
+            <div class="quick-heading">
+                <span class="h4">{{ base_currency().code }}</span>
+                <div class="control-label quick-info">Available: <span class="blue">{{ '17.00005601'|fmt_base }}</span></div>
+                <div class="control-label quick-info">Reserved: <span class="white">{{ '0'|fmt_base }}</span></div>
+                <div class="control-label quick-info">Total: <span class="white">{{ '17.00005601'|fmt_base }}</span></div>
+            </div>
+
+            <div class="quick-form">
+                <div class="row row-md">
+                    <div class="col-sm-8">
+                        <div class="quick-radio-group">
+                            <div class="box-control">
+                                <div class="box-checkbox orange"><input type="radio" checked name="quick-sell" value="0" id="quick-sell1"><label for="quick-sell1"></label></div>
+                                <div class="box-checkbox orange small"><input type="radio" name="quick-sell" value="25" id="quick-sell2"><label for="quick-sell2"></label></div>
+                                <div class="box-checkbox orange"><input type="radio" name="quick-sell" value="50" id="quick-sell3"><label for="quick-sell3"></label></div>
+                                <div class="box-checkbox orange small"><input type="radio" name="quick-sell" value="75" id="quick-sell4"><label for="quick-sell4"></label></div>
+                                <div class="box-checkbox orange"><input type="radio" name="quick-sell" value="100" id="quick-sell5"><label for="quick-sell5"></label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-md form-row">
+                    <form action="{{ path('btc_trade_order_market') }}" {{ form_enctype(sellForm) }} method="POST">
+                        <div class="col-sm-8">
+                            <div class="row row-sm">
+                                <div class="col-sm-6">
+                                    <div class="box-control">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" data-type="amo" name="btc_trade_limit_order_sell[amount]" value="0.00">
+                                            <span class="input-group-addon">{{ base_currency().code }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="box-control">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" data-type="ask" name="btc_trade_limit_order_sell[askedUnitPrice]" value="0.00">
+                                            <span class="input-group-addon">{{ quote_currency().code }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <button type="submit" class="btn btn-orange btn-control btn-block"><span class="hide-tablet">{{ 'panels.quick_buy_sell.quick'|trans }}</span> {{ 'order.action.sell'|trans }} {{ base_currency().code }}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

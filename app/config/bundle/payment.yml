@@ -1,0 +1,76 @@
+exmarkets_payment_core:
+  payment_gateways:
+    egopay:
+      sci_options:
+        account_id:           %pg_egopay_sci_options_account_id%
+        account_password:     %pg_egopay_sci_options_account_password%
+        success_url:          %pg_egopay_sci_options_success_url%
+        callback_url:         %pg_egopay_sci_options_callback_url%
+        fail_url:             %pg_egopay_sci_options_fail_url%
+      api_credentials:        ~
+    payza:
+      sci_options:
+        account_id:           %pg_payza_sci_options_account_id%
+        success_url:          %pg_payza_sci_options_success_url%
+        callback_url:         %pg_payza_sci_options_callback_url%
+        fail_url:             %pg_payza_sci_options_fail_url%
+      api_credentials:        ~
+    okpay:
+      sci_options:
+        account_id:           %pg_okpay_sci_options_account_id%
+        callback_url:         %pg_okpay_sci_options_callback_url%
+      api_credentials:        ~
+    perfectmoney:
+      general:
+        # USD account value
+        usd_account:          %pg_perfectmoney_general_usd_account%
+        # EUR account value
+        eur_account:          %pg_perfectmoney_general_eur_account%
+      sci_options:
+        sci_endpoint:         %pg_perfectmoney_sci_options_sci_endpoint%
+        success_url:          %pg_perfectmoney_sci_options_success_url%
+        callback_url:         %pg_perfectmoney_sci_options_callback_url%
+        fail_url:             %pg_perfectmoney_sci_options_fail_url%
+      api_credentials:
+        # Alternative password of perfect money
+        alt_password:         %pg_perfectmoney_api_credentials_alt_password%
+    astropay:
+      sci_options:
+        sci_endpoint:         %pg_astropay_sci_endpoint%
+        secret:               %pg_astropay_sci_secret%
+        username:             %pg_astropay_sci_username%
+        password:             %pg_astropay_sci_password%
+        success_url:          %pg_astropay_sci_success_url%
+        callback_url:         %pg_astropay_sci_callback_url%
+      api_credentials:
+        username:             %pg_astropay_api_username%
+  virtual_gateways:
+    btc:
+      gateway_folder: Coin
+      api_credentials:
+        secure:               %vg_btc_api_secure%
+        username:             %vg_btc_api_username%
+        password:             %vg_btc_api_password%
+        hostname:             %vg_btc_api_hostname%
+        port:                 %vg_btc_api_port%
+    ltc:
+      gateway_folder: Coin
+      api_credentials:
+        secure:               %vg_ltc_api_secure%
+        username:             %vg_ltc_api_username%
+        password:             %vg_ltc_api_password%
+        hostname:             %vg_ltc_api_hostname%
+        port:                 %vg_ltc_api_port%
+    eth:
+      gateway_folder: Etherium
+      api_credentials:
+        secure:               %vg_eth_api_secure%
+        username:             %vg_eth_api_username%
+        password:             %vg_eth_api_password%
+        hostname:             %vg_eth_api_hostname%
+        port:                 %vg_eth_api_port%
+
+  wire:
+    international:
+      checkout_route:         btc_wire_transfer_deposits_show
+

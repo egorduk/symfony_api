@@ -1,0 +1,49 @@
+withdrawal:
+  title: 'MAG-WITHDRAW GAMIT ANG %bank%'
+  egopay:
+    title: 'MAG-WITHDRAW GAMIT ANG EGOPAY'
+  submit: Withdraw
+  form:
+    foreign_account: Address
+    auth_code: 'Two-factor auth code:'
+  error:
+    invalid_address: 'Wallet address is not valid'
+  flash:
+    success_amount: 'Withdrawal request for %amount% is scheduled for processing.'
+  please_select: '<strong>Pumili ng</strong> payment option para sa iyong withdrawal:'
+  available_balance: 'Natitirang balanse'
+  amount: 'Halaga ng i-wiwithdraw:'
+  fees: 'Bayad sa pag-withdraw:'
+headers:
+  anti_money_laundering: 'Pinaka-mataas na withdrawals ayon sa aming anti-money laundering policy:'
+  unverified_limits: 'Maximum withdrawals for unverified users:'
+important_notice: 'Importanteng paalala:'
+aml_note: 'Dahil sa aming AML policy, ikaw ay pinapahintulutan lamang na mag-withdraw na ang halaga ay katumbas o mas maliit pa sa halaga ng iyong dineposito gamit ang specific gateway.Ang batas na ito ay hindi sakop ang mga pera na nakuha mula sa aming trading platform. HALIMBAWA: Kung ikaw ay nag deposito ng $10000 gamit ang EgoPay at kumita ng $1000, ikaw ay maaaring mag-widthraw ng $11000 (deposito + kita) gamit ang EgoPay o kya $10000 (deposito) gamit ang EgoPay at $1000 (kita) gamit ang kahit anong payment gateway.'
+note: 'Mangyaring tandaan din na manu-mano naming pinoproseso ang lahat ng withdrawals. Ibig sabihin, lahat ng iyong withdrawal request ay maaaring umabot ng hanggang 24 oras gamit ang Payza at EgoPay, at hanggang 48 oras naman gamit ang Perfect Money at OKPay.'
+wire:
+  comment: Comment
+  amount: 'Amount *'
+  beneficiary_account_number: 'Account Number *'
+  beneficiary_account_name: 'Name *'
+  beneficiary_account_address: 'Street House num. PO BOX *'
+  beneficiary_account_city: 'City *'
+  beneficiary_account_country: 'Bansa*'
+  beneficiary_account_state: State
+  beneficiary_account_postal_code: 'Postal Code/ZIP *'
+  beneficiary_bank_name: 'Bank Name *'
+  beneficiary_bank_code: 'SWIFT/BIC *'
+  beneficiary_bank_address: 'Street House num. PO BOX *'
+  beneficiary_bank_other_info: 'Other info'
+  beneficiary_bank_city: 'City *'
+  beneficiary_bank_state: State
+  beneficiary_bank_postal_code: 'Postal Code/ZIP *'
+  beneficiary_bank_country: 'Bansa*'
+  correspondent_bank_account: 'Bank Account'
+  correspondent_bank_name: 'Bank Name'
+  correspondent_bank_code: 'Bank Code'
+  correspondent_bank_address: 'Street House num. PO BOX'
+  correspondent_bank_other_info: 'Other info'
+  correspondent_bank_city: City
+  correspondent_bank_state: State
+  correspondent_bank_postal_code: 'Postal Code/ZIP'
+  correspondent_bank_country: Bansa

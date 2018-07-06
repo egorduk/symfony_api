@@ -1,0 +1,15 @@
+{% trans_default_domain 'Deposit' %}
+<div class="row row-sm">
+    <label class="control-label col-sm-5" for="btc_transfer_deposit_amount">{{ 'deposit.amount'|trans }}</label>
+
+    <div class="col-sm-4">
+        <p>
+            {{ form_widget(form.amount, {'attr': {'class': 'form-control currency js-amount-input'} }) }}
+        </p>
+    </div>
+    <div class="col-sm-3">
+        <p>
+            {{ form_widget(form.currency, {'attr': {'class': 'form-control js-currency-selector'} }) }}
+        </p>
+    </div>
+</div>

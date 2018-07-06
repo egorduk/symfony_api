@@ -1,0 +1,23 @@
+{% extends 'BtcAccountBundle::account_layout.html.twig' %}
+
+{% trans_default_domain 'Bank' %}
+{% set page_title = 'bank.title.disabled'|trans({'%name%': bank.name}) %}
+
+{% block content %}
+  <div class="row row-sm">
+    <div class="col-sm-12">
+      <div class="page-header">
+        <h1>{{ page_title }}</h1>
+      </div>
+
+      <div class="well">
+        <p>{{ 'bank.message.disabled'|trans({'%name%': bank.name}) }}</p>
+      </div>
+
+      <button class="btn btn-control btn-blue pull-left" onclick="window.history.go(-1)">
+        <span class="glyphicon glyphicon-arrow-left"></span>
+        {{ 'go.back'|trans }}
+      </button>
+    </div>
+  </div>
+{% endblock %}

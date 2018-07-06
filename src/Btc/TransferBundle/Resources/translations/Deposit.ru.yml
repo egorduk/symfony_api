@@ -1,0 +1,64 @@
+deposit:
+  egopay:
+    title: 'ВЫПОЛНИТЬ ВЗНОС С ПОМОЩЬЮ EGOPAY'
+  bitcoin:
+    title: 'Deposit your Bitcoins'
+    your_address: 'Отправить деньги на этот адрес'
+    qrcode_address: 'QR-КОД для адреса'
+  submit: Взнос
+  please_select: 'Выберите <strong>вариант оплаты</strong> для выполнения валютного взноса:'
+  amount: 'Сумма для взноса:'
+  maximum_amount: 'Максимальная сумма взноса от:'
+  fees: 'Сборы за открытие счета:'
+  astropay:
+    usd_amount: 'Сумма в USD:'
+    country: 'Страна:'
+  crypto:
+    offline: 'Crypto currency deposit is unavailable'
+    offline_desc: 'Crypto currency deposit is unavailable. Sorry for the inconvienence.'
+  coin:
+    title: 'ВВОД КРИПТОВАЛЮТЫ'
+    your_address: '<strong>Отправить деньги</strong> на этот адрес'
+    qrcode_address: 'QR-КОД для адреса'
+    minimum: 'Минимальный взнос в %currencyCode%:'
+    please_select: 'Выберите <strong>вариант оплаты</strong> для валютного взноса:'
+    alert: "Подтверждение транзакции в сети Биткоин может занять </strong>1-2\_часа</strong>."
+  token:
+    title: 'Deposit your tokens'
+    your_address: <strong>Send your tokens</strong> to this address
+    alert: 'It may take up to <strong>1-2 hours</strong> for the blockchain network to confirm the transaction.'
+
+  title: 'ВЫПОЛНИТЬ ВЗНОС С ПОМОЩЬЮ %bank_name%'
+currency:
+  ltc:
+    fullname: litecoin
+  btc:
+    fullname: bitcoin
+withdrawal:
+  coin:
+    title: 'ВЫПЛАТА %currencyCode%'
+    your_address: 'Your %currencyCode% wallet address'
+    please_select: 'Выберите <strong>вариант оплаты</strong> для получения выплаты:'
+  important_note: 'Важное примечание'
+  note: "Обработка крупных выплат может занять до 24\_часов"
+  flash:
+    success: 'Withdrawal request is in progress.'
+    success_amount: 'Withdrawal request for %amount% placed'
+  current_balance: 'Ваш текущий доступный баланс для выплаты составляет'
+  maximum: 'Максимальная сумма выплаты:'
+  address: 'aдрес:'
+  amount: 'Сумма для выплаты:'
+action:
+  withdraw: 'ВЫПЛАТА %currencyCode%'
+coin:
+  request_new_address: 'ЗАПРОСИТЬ НОВЫЙ АДРЕС'
+  deposit_addresses: 'Адреса взносов в %currencyCode%'
+  table:
+    date: Дата
+    address: Адрес
+wire:
+  first_name: Имя
+  last_name: Фамилия
+  company: 'Название компании'
+  amount: Сумма
+  comment: 'Комментарии (опционально)'

@@ -1,0 +1,29 @@
+image: php5.5
+
+git:
+  depth: 1
+
+services:
+  - mysql
+  - redis
+
+script:
+  - sudo start redis
+  - cp app/config/bundle/nsq.yml.dist app/config/bundle/nsq.yml
+  - cp app/config/parameters.yml.dist app/config/parameters.yml
+  - cp behat.yml.dist behat.yml
+  - sudo composer self-update
+  - composer install --prefer-source
+  - bin/phpspec run -fdot
+
+  - bin/app reload --env=test
+  - bin/test-server start
+  - bin/behat -fprogress
+
+notify:
+  slack:
+    team: {{slackTeam}}
+    token: {{slackToken}}
+    channel: {{slackChannel}}
+    username: {{slackUsername}}
+    on_failure: true

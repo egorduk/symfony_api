@@ -1,0 +1,74 @@
+stages:
+  - build
+  - deploy
+
+build_stable:
+  stage: build
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker pull registry.besk.com/exm/deploy/docker-php7-builder:stable
+    - docker tag registry.besk.com/exm/deploy/docker-php7-builder:stable docker-php-builder
+  only:
+    - master
+  script: |
+    docker build -t $CI_REGISTRY_IMAGE:stable -f Dockerfile .
+    docker push $CI_REGISTRY_IMAGE:stable
+
+build_latest:
+  stage: build
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker pull registry.besk.com/exm/deploy/docker-php7-builder:stage
+    - docker tag registry.besk.com/exm/deploy/docker-php7-builder:stage docker-php-builder
+  only:
+    - dev
+  script: |
+    docker build -t $CI_REGISTRY_IMAGE:stage -f Dockerfile .
+    docker push $CI_REGISTRY_IMAGE:stage
+
+
+deploy_exmarkets_dev:
+  stage: deploy
+  variables: 
+    GIT_STRATEGY: none
+  tags:
+    - demo-dev
+  only:
+    - dev
+  script:
+    - /usr/bin/docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - cd /opt/install-script
+    - export PROJECT=exmarket
+    - export EXCHANGE_ENV=stage
+    - ./exchange.sh update-service php-frontend        
+    
+deploy_exmarkets_stage:
+  stage: deploy
+  variables: 
+    GIT_STRATEGY: none
+  tags:
+    - demo-stage
+  only:
+    - master
+  script:
+    - /usr/bin/docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - cd /opt/install-script
+    - export PROJECT=exmarket
+    - export EXCHANGE_ENV=stable
+    - ./exchange.sh update-service php-frontend        
+
+deploy_exmarkets_prod_live:
+  stage: deploy
+  variables: 
+    GIT_STRATEGY: none
+  tags:
+    - demo-prod
+  only:
+    - master
+  when: manual
+  script:
+    - /usr/bin/docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - cd /opt/install-script
+    - export PROJECT=exmarket-live
+    - export EXCHANGE_ENV=stable
+    - ./exchange.sh update-service php-frontend    

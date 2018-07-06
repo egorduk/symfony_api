@@ -1,0 +1,38 @@
+{% trans_default_domain 'Trade' %}
+<div class="order-name">
+    <div class="clearfix">
+        <div class="pull-right text-right">
+            <label>Total {% if type == "ask" %}{{ base_currency().code }}{% else %}{{ quote_currency().code }}{% endif %} available</label>
+            <div class="value">0.00</div>
+        </div>
+        <div class="h4"><span class="circle-border {% if type == "ask" %}orange{% else %}green{% endif %}"></span> {% if type == "ask" %}Sell{% else %}Buy{% endif %} orders</div>
+    </div>
+</div>
+<table class="table table-condensed table-prices {% if type == "ask" %}table-sellers{% else %}table-buyers{% endif %}">
+  <thead>
+    <tr>
+      <th class="{% if type == "bid" %}buyers{% else %}sellers{% endif %}-th width-25">
+        {{ ("deals.top." ~ type)|trans|upper }}
+        <small>({{ currency_pair() }})</small>
+      </th>
+      <th class="width-50">
+          {{ 'deals.column.title.amount'|trans }}
+          <small>({{ base_currency().code }})</small>
+      </th>
+      <th class="width-25">
+          {{ 'deals.column.title.value'|trans }}
+          <small>({{ quote_currency().code }})</small>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for deal in deals %}
+        <tr>
+            <td>{{ deal.price|fmt_price }}</td>
+            <td>{{ deal.amount|fmt_base }}</td>
+            <td>{{ (deal.amount * deal.price)|fmt_quote }}</td>
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<p class="js-no-orders" {% if deals|length > 0 %}style="display:none;"{% endif %}>{{ 'deals.live_orderbook.no_orders'|trans }}</p>

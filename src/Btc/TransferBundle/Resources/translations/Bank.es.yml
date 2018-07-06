@@ -1,0 +1,12 @@
+payza:
+  description: 'Plataforma de pago en línea global especializada en procesamiento en el campo del comercio electrónico, desembolsos corporativos y remesas para personas y empresas a nivel mundial.'
+  notice: 'Los depósitos que se realizan a través de Payza pueden tardar entre 12 y 48 horas en procesarse.'
+egopay:
+  description: 'Procesador de pagos electrónicos reconocido a nivel global que ofrece transacciones instantáneas tanto a personas como a empresas de todo el mundo.'
+okpay:
+  description: 'Sistema de pago basado en web P2P y B2C que ofrece a los usuarios una cuenta virtual que permite cargar, enviar, recibir y retirar dinero, así como realizar compras en línea.'
+perfect_money:
+  description: 'Procesador de pagos en línea que ofrece a sus usuarios monederos electrónicos, pagos instantáneos, etc.'
+wire:
+  description: 'Seleccione USD en el selector de divisa para realizar una transferencia bancaria internacional o EUR para realizar una transferencia bancaria SEPA.'
+important_notice: 'Aviso importante:'

@@ -1,0 +1,38 @@
+payza:
+  description: 'A global online payment platform that specializes in e-commerce processing, corporate disbursements, and remittances for individuals and businesses around the world.'
+  notice: 'Deposits made through Payza can take from 12 to 48 hours to be processed.'
+
+egopay:
+  description: 'A trusted global e-payments processor which offers instant transactions for individuals and businesses worldwide.'
+  disabled: 'We are sorry for the inconvenience, but EgoPay payment method is currently disabled.'
+
+okpay:
+  description: 'A P2P and B2C web based payment system that provides users with a virtual account that allows to load, send, receive and withdraw money as well as make purchases online.'
+
+perfect_money:
+  description: 'An online payments processor that offers its users e-wallets, instant payments etc.'
+
+wire:
+  description: "Select USD from currency selector for International Wire Transfer or EUR for SEPA Wire Transfer. <br /> Your wire transfer deposit will be credited in 1 - 3 business days."
+
+astropay:
+  description: "AstroPay provides alternative ways to pay online in local currencies in Latin America."
+  notice: "AstroPay deposits are credited only after AstroPay confirms the payment. In case of payment delays please contact AstroPay directly"
+
+important_notice: "Important notice:"
+
+bank:
+  title:
+    disabled: "%name% is offline"
+  message:
+    disabled: "\"%name%\" payment method is currently offline. We are sorry for the inconvenience."
+
+go:
+  back: "Go back"
+
+payments:
+  label:
+    currency: "Currency"
+    daily: "Daily"
+    weekly: "Weekly"
+    monthly: "Monthly"

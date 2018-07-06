@@ -1,0 +1,100 @@
+{% trans_default_domain 'Trade' %}
+<div class="panel">
+    <div class="panel-heading">
+        <div class="pull-right">
+            <a class="link-box link-full-book" href="{{ path('btc_frontend_orderbook_index') }}">{{ 'panels.orderbook.full_book'|trans }}</a>
+            <ul class="nav-btn-tabs box-inline" role="tablist">
+                <li role="presentation" class=""><a class="btn" href="#chart" aria-controls="chart" role="tab" data-toggle="tab"><i class="icon icon-chart"></i></a></li>
+                <li role="presentation" class="active"><a class="btn" href="#table" aria-controls="table" role="tab" data-toggle="tab"><i class="icon icon-table"></i></a></li>
+            </ul>
+        </div>
+        <div class="panel-title">
+            {{ 'panels.orderbook.title'|trans }} {{ base_currency().code }}/{{ quote_currency().code }}
+        </div>
+    </div>
+    <div id="collapseBook" class="panel-collapse collapse in">
+        <div class="panel-body">
+            <div class="order-book">
+                <div class="row row-lg">
+                    <div class="col-sm-6">
+                        <div class="order-name">
+                            <div class="clearfix">
+                                <div class="pull-right info-balance">
+                                    <label>{{ "panels.orderbook.total_available"|trans({'%currency_code%': base_currency().code}) }}</label>
+                                    <div class="value white">0.00</div>
+                                </div>
+                                <div class="h4"><span class="circle-border orange"></span> {{ 'panels.orderbook.sell_orders'|trans }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="order-name">
+                            <div class="clearfix">
+                                <div class="pull-right info-balance">
+                                    <label>{{ "panels.orderbook.total_available"|trans({'%currency_code%': quote_currency().code}) }}</label>
+                                    <div class="value white">0.00</div>
+                                </div>
+                                <div class="h4"><span class="circle-border green"></span> {{ 'panels.orderbook.buy_orders'|trans }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane" id="chart">
+                        {% include 'BtcFrontendBundle:widgets:order_chart.html.twig' %}
+                    </div>
+                    <div role="tabpanel" class="tab-pane active" id="table">
+                        <div class="row row-lg">
+                            <div class="col-sm-6">
+                                <div class="order-table-heading">
+                                    <div class="heading-table">
+                                        <table class="table table-prices table-amount">
+                                            <thead>
+                                            <tr>
+                                                <th>{{ base_currency().code }} {{ 'panels.orderbook.columns.price'|trans }}</th>
+                                                <th>{{ base_currency().code }} {{ 'panels.orderbook.columns.amount'|trans }}</th>
+                                                <th>{{ quote_currency().code }} {{ 'panels.orderbook.columns.amount'|trans }}</th>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="order-table-heading">
+                                    <div class="heading-table">
+                                        <table class="table table-prices table-amount">
+                                            <thead>
+                                            <tr>
+                                                <th>{{ base_currency().code }} {{ 'panels.orderbook.columns.price'|trans }}</th>
+                                                <th>{{ base_currency().code }} {{ 'panels.orderbook.columns.amount'|trans }}</th>
+                                                <th>{{ quote_currency().code }} {{ 'panels.orderbook.columns.amount'|trans }}</th></tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="order-table-body">
+                            <div class="scroll-table scrollbar-inner">
+                                <div class="row row-no">
+                                    <div class="col-sm-6">
+                                        <div class="table-sellers">
+                                            {% include 'BtcTradeBundle:widgets:deals_table_column.html.twig' with {'deals': topSellers} %}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="table-buyers">
+                                            {% include 'BtcTradeBundle:widgets:deals_table_column.html.twig' with {'deals': topBuyers} %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

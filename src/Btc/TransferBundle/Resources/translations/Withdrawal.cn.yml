@@ -1,0 +1,49 @@
+withdrawal:
+  title: '通过 %bank% 取款'
+  egopay:
+    title: '通过 EGOPAY 取款'
+  submit: 取款
+  form:
+    foreign_account: 地址
+    auth_code: 认证码
+  error:
+    invalid_address: 'Wallet address is not valid'
+  flash:
+    success_amount: 'Withdrawal request for %amount% is scheduled for processing.'
+  please_select: 请为取款<strong>选择支付</strong>选项：
+  available_balance: 'Available balance'
+  amount: 取款数额：
+  fees: 取款费：
+headers:
+  anti_money_laundering: 依据我们的反洗钱政策的最大取款数：
+  unverified_limits: 未验证用户最大取款数：
+important_notice: 重要提示：
+aml_note: '根据 AML 政策，仅允许您提取数额等于或少于通过特殊网关存入数额的资金。该规则不适用于通过平台交易获得的资金。 示例：如果您通过 EgoPay 存入 $10,000 并获利 $1,000，您便能通过 EgoPay 取款 $11,000（存款 + 收益），或通过 EgoPay 取款。'
+note: '还要注意一点，即当前所有取款都是人工处理的。这意味着通过 Payza 和 EgoPay 处理取款请求可能需要长达 24 小时，通过 Perfect Money 和 OKPay 则需要 48 小时。'
+wire:
+  comment: 评论
+  amount: '数额*'
+  beneficiary_account_number: '账号*'
+  beneficiary_account_name: '姓名*'
+  beneficiary_account_address: '街道、房号、邮政信箱*'
+  beneficiary_account_city: '城市*'
+  beneficiary_account_country: '国家/地区*'
+  beneficiary_account_state: 州
+  beneficiary_account_postal_code: '邮政编码*'
+  beneficiary_bank_name: '银行名称*'
+  beneficiary_bank_code: 'SWIFT/BIC*'
+  beneficiary_bank_address: '街道、房号、邮政信箱*'
+  beneficiary_bank_other_info: 'Other info'
+  beneficiary_bank_city: '城市*'
+  beneficiary_bank_state: 州
+  beneficiary_bank_postal_code: '邮政编码*'
+  beneficiary_bank_country: '国家/地区*：'
+  correspondent_bank_account: 银行账户
+  correspondent_bank_name: 银行名称
+  correspondent_bank_code: 银行代码
+  correspondent_bank_address: 街道、房号、邮政信箱
+  correspondent_bank_other_info: 'Other info'
+  correspondent_bank_city: 城市
+  correspondent_bank_state: 州
+  correspondent_bank_postal_code: 邮政编码
+  correspondent_bank_country: 国家/地区

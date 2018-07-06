@@ -1,0 +1,21 @@
+# translations for Btc\Component\Market
+order:
+  empty:
+    market: "We could not place market order as the market is empty, place a limit order."
+  already:
+    cancelled: "Cannot cancel %side% order: '%id%', it was already cancelled."
+    completed: "Cannot cancel %side% order: '%id%', it is completed."
+  insufficient:
+    balance: "Not enough available balance"
+  min:
+    amount: "The lowest allowed order amount may be %amount% %currency%"
+    order_value: "Order value should be at least %amount% %currency%"
+  price:
+    blank: "Price field cannot be blank."
+    zero_or_negative: "Price must be greater than 0."
+  amount:
+    blank: "An amount cannot be blank."
+    zero_or_negative: "Amount must be greater than 0."
+
+float:
+  overflow: "Value is too big."

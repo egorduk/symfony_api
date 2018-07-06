@@ -1,0 +1,20 @@
+services:
+    trade.api.repository.api_key:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['Btc\CoreBundle\Entity\ApiKey']
+
+    trade.api.repository.api_nonce:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['Btc\CoreBundle\Entity\ApiNonce']
+
+    trade_api_auth_authenticator:
+        class: Btc\TradeApiBundle\Security\Authentication\Provider\AuthenticationAuthenticator
+        arguments: ['@trade.api.repository.api_key', '@trade.api.repository.api_nonce']
+        #arguments: ['@trade.api.repository.api_key', '@security.http_utils']
+        public: false
+
+    trade_api_user_provider:
+        class: Btc\TradeApiBundle\Security\Authentication\Provider\UserProvider
+        arguments: ['@trade.api.repository.api_key']

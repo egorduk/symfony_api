@@ -1,0 +1,19 @@
+{% trans_default_domain 'Trade' %}
+
+<div class="table-special table table-prices table-sellers">
+    {% for deal in deals %}
+        <div class="row-line" data-amounts="{{ deal.amount }}" data-price="{{ deal.price }}">
+            <div class="tr">
+                <div class="td">{{ deal.price|fmt_price }}</div>
+                <div class="td">{{ deal.amount|fmt_base }}</div>
+                <div class="td">{{ (deal.price * deal.amount)|fmt_quote }}</div>
+            </div>
+
+            {# @TODO need max Amount! #}
+            <div class="persent-bg" style="width:{{ (deal.amount * 100 / 1)|fmt_quote }}%"></div>{# percent width = BTC Amount*100/ max BTC Amount in table #}
+        </div>
+    {% endfor %}
+    <div class="padding-block">
+        <p class="js-no-orders{% if deals|length > 0 %} hide{% endif %}">{{ 'deals.live_orderbook.no_orders'|trans }}</p>
+    </div>
+</div>

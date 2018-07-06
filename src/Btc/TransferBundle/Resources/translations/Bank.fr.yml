@@ -1,0 +1,12 @@
+payza:
+  description: 'Plate-forme de paiement en ligne mondiale spécialisée dans le traitement des échanges commerciaux, les paiements d’entreprise et les transferts de fonds aussi bien aux particuliers qu’aux entreprises à travers le monde.'
+  notice: "Les dépôts auprès de Payza peuvent être traités dans un délai allant de 12 à 48\_heures."
+egopay:
+  description: 'Opérateur mondial de paiements électroniques de confiance proposant des transactions instantanées aussi bien aux particuliers qu’aux entreprises à travers le monde.'
+okpay:
+  description: 'Système de paiement en ligne P2P et B2C fournissant aux utilisateurs un compte virtuel pour leur permettre de charger, envoyer, recevoir et retirer de l’argent et effectuer des achats en ligne.'
+perfect_money:
+  description: 'Opérateur de paiement en ligne offrant à ses utilisateurs des portefeuilles en ligne, des options de paiement instantané, etc.'
+wire:
+  description: 'Sélectionnez USD dans le sélecteur de devises pour les virements internationaux ou EUR pour les virements SEPA.'
+important_notice: "Remarque importante\_:"

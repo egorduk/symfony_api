@@ -1,0 +1,27 @@
+parameters:
+  entity_repositories:
+    Btc\CoreBundle\Entity\Market: Btc\FrontendApiBundle\Repository\MarketRepository
+    Btc\CoreBundle\Entity\Currency: Btc\FrontendApiBundle\Repository\CurrencyRepository
+    Btc\CoreBundle\Entity\Transaction: Btc\FrontendApiBundle\Repository\TransactionRepository
+    Btc\CoreBundle\Entity\WalletOperation: Btc\FrontendApiBundle\Repository\WalletOperationRepository
+    Btc\CoreBundle\Entity\Activity: Btc\FrontendApiBundle\Repository\ActivityRepository
+    Btc\CoreBundle\Entity\User: Btc\FrontendApiBundle\Repository\UserRepository
+    Btc\CoreBundle\Entity\Verification: Btc\FrontendApiBundle\Repository\VerificationRepository
+    Btc\CoreBundle\Entity\Wallet: Btc\FrontendApiBundle\Repository\WalletRepository
+    Btc\CoreBundle\Entity\Settings: Btc\FrontendApiBundle\Repository\SettingsRepository
+    Btc\CoreBundle\Entity\Deposit\Deposit: Btc\FrontendApiBundle\Repository\DepositRepository
+    Btc\CoreBundle\Entity\Withdraw\Withdraw: Btc\FrontendApiBundle\Repository\WithdrawRepository
+    Btc\CoreBundle\Entity\DepositAddress: Btc\FrontendApiBundle\Repository\CoinAddressRepository
+    Btc\CoreBundle\Entity\CoinTransaction: Btc\FrontendApiBundle\Repository\CoinTransactionRepository
+    Btc\CoreBundle\Entity\Bank: Btc\FrontendApiBundle\Repository\BankRepository
+    Btc\CoreBundle\Entity\Country: Btc\FrontendApiBundle\Repository\CountryRepository
+    Btc\CoreBundle\Entity\EmailTemplate: Btc\FrontendApiBundle\Repository\EmailTemplateRepository
+    Btc\CoreBundle\Entity\UserPreference: Btc\FrontendApiBundle\Repository\UserPreferenceRepository
+    Btc\CoreBundle\Entity\Order: Btc\FrontendApiBundle\Repository\OrderRepository
+    Btc\CoreBundle\Entity\Voucher: Btc\FrontendApiBundle\Repository\VoucherRepository
+    Btc\CoreBundle\Entity\Article: Exmarkets\NewsBundle\Repository\ArticleRepository
+    Btc\CoreBundle\Entity\PriceNotification: Btc\FrontendApiBundle\Repository\PriceNotificationRepository
+    Btc\CoreBundle\Entity\PhoneVerification: Btc\FrontendApiBundle\Repository\PhoneRepository
+    Btc\CoreBundle\Entity\Page: Btc\FrontendApiBundle\Repository\PageRepository
+    Btc\CoreBundle\Entity\ApiKey: Btc\TradeApiBundle\Repository\ApiKeyRepository
+    Btc\CoreBundle\Entity\ApiNonce: Btc\TradeApiBundle\Repository\ApiNonceRepository

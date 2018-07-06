@@ -1,0 +1,12 @@
+services:
+  #Remove this later after getting rid of beanstalkd
+  queue:
+    class: Btc\Component\Market\Queue\QueuePool
+
+#  exmarkets_transfer.plans.payment_limits:
+#    class: Btc\TransferBundle\Service\PaymentLimitService
+#    arguments: ['@db']
+
+  #exmarkets_transfer.payment.factory:
+  #  class: Btc\TransferBundle\Factory\PaymentFactory
+  #  arguments: ['@rest.repository.country', '@exmarkets_transfer.plans.payment_limits', '@security.context', '@rest.service.fee_service']

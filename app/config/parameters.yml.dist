@@ -1,0 +1,110 @@
+parameters:
+  # database
+  database_driver: pdo_mysql
+  database_host: 127.0.0.1
+  database_port: null
+  database_name: exmarkets
+  database_user: root
+  database_password: root
+
+  # environment
+  locale: en
+  secret: ThisTokenIsNotSoSecretChangeIt
+  cache_namespace: btc-x
+  file_upload_dir: %kernel.root_dir%/Resources/uploads
+  session_lifetime: 3600 # 1h
+  base_url_tag: true
+  base_url: exmarkets.com
+
+
+  # Redis, uses separate databases, max 15, default is 0
+  redis_host: 127.0.0.1
+  redis_port: 6379
+  redis_db: 1
+
+  # Host and scheme to use for command context
+  router.request_context.host: bankera.com
+  router.request_context.scheme: https
+
+  # mailgun
+  mailgun_api_domain: fill-in
+  mailgun_api_key: key-fill-in
+  newsletter_email: fill-in
+  mailer_from_email: no-reply@bankera.com
+  mailer_from_name: Bankera
+  token_submission_email: token@bankera.com
+
+  # sentry
+  sentry_dsn: "http://578e16b3e2a84be9aa8a4bbde56984aa:652a8967aaf341d6b9696dc1ae45166d@sentry.besk.com/10"
+
+  # payment core
+  pg_egopay_api_wallet_email: "mantas.radzevicius@datadog.lt"
+  pg_egopay_sci_options_account_id: "D99MQTEDKN2X"
+  pg_egopay_sci_options_account_password: "szsXQ0XYGKWRKA0lLGBChWkRVKdsId00"
+  pg_egopay_sci_options_success_url: "btc_account_deposits"
+  pg_egopay_sci_options_callback_url: "btc_transfer_ipn_receive"
+  pg_egopay_sci_options_fail_url: "btc_account_deposits"
+
+  pg_payza_sci_options_account_id: "finances@exmarkets.com"
+  pg_payza_sci_options_success_url: "btc_account_deposits"
+  pg_payza_sci_options_callback_url: "btc_transfer_ipn_receive"
+  pg_payza_sci_options_fail_url: "btc_account_deposits"
+
+  pg_okpay_sci_options_account_id: "OK742810394"
+  pg_okpay_sci_options_callback_url: "btc_transfer_ipn_receive"
+
+  pg_perfectmoney_sci_options_sci_endpoint: 'https://perfectmoney.is/api/step1.asp'
+  pg_perfectmoney_general_usd_account: "U6298356"
+  pg_perfectmoney_general_eur_account: "E4365583"
+  pg_perfectmoney_api_credentials_alt_password: "usdacount"
+  pg_perfectmoney_sci_options_success_url: "btc_account_deposits"
+  pg_perfectmoney_sci_options_callback_url: "btc_transfer_ipn_receive"
+  pg_perfectmoney_sci_options_fail_url: "btc_account_deposits"
+
+  pg_astropay_sci_endpoint: "https://www.astropaycard.com/api_curl/apd/"
+  pg_astropay_sci_success_url: btc_account_deposits_astropay
+  pg_astropay_sci_callback_url: btc_transfer_ipn_receive
+  pg_astropay_sci_secret: "fill-in"
+  pg_astropay_sci_username: "fill-in"
+  pg_astropay_sci_password: "fill-in"
+  pg_astropay_api_username: "fill-in"
+
+  vg_btc_api_username: "bitcoinrpc"
+  vg_btc_api_password: "Hc1NpzfEUCNjDEJaPdcg1t8msriAyksG9Ym59b37jYgf"
+  vg_btc_api_hostname: "127.0.0.1"
+  vg_btc_api_port: "18332"
+  vg_btc_api_secure: true
+  vg_ltc_api_username: "user"
+  vg_ltc_api_password: "pass"
+  vg_ltc_api_hostname: "127.0.0.1"
+  vg_ltc_api_port: "19332"
+  vg_ltc_api_secure: true
+
+  vg_eth_api_username: test
+  vg_eth_api_password: testPass
+  vg_eth_api_hostname: 192.168.1.130
+  vg_eth_api_port: 5080
+  vg_eth_api_secure: false
+
+
+  # orderbook
+  orderbook_api_endpoint: "http://127.0.0.1:8888"
+
+  websocket_url: "ws://localhost:8080/ws"
+
+  #twilio uses testing credential without real sending sms
+  twilio_from: "+15005550006"
+  twilio_sid: AC1ca87e286f60c70188df176c21870d51
+  twilio_token: 5df6dbf7cacd450e24ef21a8779cae97
+  twilio_version: fill-in
+
+  rest_api_version: 1
+  trade_api_version: 1
+  rest_api_debug_mode: 0
+  rest_api_debug_user_id: 1
+  rest_mail_pin_mode: 1
+
+  autodeposit_currency_on_registration: 1
+  jwt_token_lifetime: 3600
+  jwt_private_key: '/app/data/jwt.key'
+  jwt_public_key: '/app/data/jwt.key.pub'

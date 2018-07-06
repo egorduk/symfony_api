@@ -1,0 +1,14 @@
+overview:
+  title: 'Visão Geral'
+  live_trades:
+    title: 'Negociações Online'
+    time_since: 'Tempo desde'
+    amount: Quantidade
+    price: Preço
+  live_orderbook:
+    title: 'Livro de Ordens Online'
+    bid_amount: 'Quantidade da Oferta'
+    bid_price: 'Preço da Oferta'
+    ask_amount: 'Quantidade da Demanda'
+    ask_price: 'Preço da Demanda'
+    no_orders: 'Não há Ordens no mercado'

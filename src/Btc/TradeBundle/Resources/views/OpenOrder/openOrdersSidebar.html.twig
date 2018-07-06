@@ -1,0 +1,52 @@
+{% trans_default_domain 'Trade' %}
+<div class="panel last-orders-block">
+    <div class="panel-heading">
+      <div class="title-list">
+        <div class="pull-right">
+          <a class="btn btn-collapsed" role="button" data-toggle="collapse"  href="#collapseOrder" aria-expanded="true" aria-controls="collapseOrder">
+            <i class="icon icon-slide"></i>
+          </a>
+        </div>
+        <div class="panel-title box-inline">{{ 'my_order_book'|trans }}</div>
+      </div>
+        {% if orders is empty %}
+            <div class="label-text">{{ 'order.book.empty'|trans() }}</div>
+        {% endif %}
+    </div>
+    <div id="collapseOrder" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <table class="table table-bordered table-hover table-condensed table-striped table-last-orders">
+
+
+            {% for order in orders %}
+              {% set mi = market_info(order.market) %}
+            <tr class="pending">
+                <td>
+                  <a href="{{ path("btc_trade_openorder_open") }}">
+                    {{ ('order.action.' ~ order.side|lower)|trans }}
+                  </a>
+                </td>
+                <td title="{{ 'order.table.unit_price'|trans }}">
+                {% if not order.isMarket %}
+                    {{ mi.formatPrice(order.askedUnitPrice) }}
+                {% else %}
+                    <div class="text-center">~</div>
+                {% endif %}
+                </td>
+                <td class="text-right" title="{{ 'order.table.remaining_amount'|trans }}">
+                  {{ mi.formatBase(order.amountLeft) }}
+                </td>
+                <td class="text-right" title="{{ 'order.table.remaining_value'|trans }}">
+                {% if not order.isMarket %}
+                    {{ mi.formatPrice(order.amountLeft * order.askedUnitPrice - order.feeAmountTaken) }}
+                {% else %}
+                    <div class="text-center">~</div>
+                {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div class="text-right"><a class="link link-more" href="{{ path('btc_trade_openorder_open') }}">{{ 'my_orders'|trans }} <span class="icon icon-slide-right"></span></a></div>
+      </div>
+    </div>
+</div>

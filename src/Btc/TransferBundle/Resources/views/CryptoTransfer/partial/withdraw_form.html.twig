@@ -1,0 +1,61 @@
+{% trans_default_domain 'Deposit' %}
+{% form_theme form 'BtcUserBundle:Form:fields.html.twig' %}
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {% if app.user.hasTOTP %}
+        <div class="row row-sm">
+            {{ form_label(form.authCode, null, {'label_attr': {'class': 'control-label col-sm-5'}})}}
+            <div class="col-sm-7">
+                <p>
+                    {{ form_widget(form.authCode, {'attr': {'class': 'form-control'} }) }}
+                </p>
+            </div>
+        </div>
+        <div class="text-danger">
+            {{ form_errors(form.authCode) }}
+        </div>
+    {% elseif app.user.hasHOTP %}
+        <div class="row row-sm">
+            {{ form_label(form.authCode, null, {'label_attr': {'class': 'control-label col-sm-5'}})}}
+            <div class="col-sm-4">
+                <p>
+                    {{ form_widget(form.authCode, {'attr': {'class': 'form-control'} }) }}
+                </p>
+            </div>
+            <div class="col-sm-3">
+                <p>
+                    {{ form_widget(form.sendSms) }}
+                </p>
+            </div>
+        </div>
+        <div class="text-danger">
+            {{ form_errors(form.authCode) }}
+        </div>
+    {% endif %}
+<div class="row row-sm">
+    <label class="control-label col-sm-5" for="btc_transfer_withdrawal_crypto_address">{{ currencyCode }} address:</label>
+    <div class="col-sm-7">
+        <p>
+            {{ form_widget(form.foreignAccount, {'attr': {'class': 'form-control'} }) }}
+        </p>
+    </div>
+</div>
+<div class="text-danger">
+    {{ form_errors(form.foreignAccount) }}
+</div>
+<div class="row row-sm">
+    <label class="control-label col-sm-5" for="btc_transfer_withdrawal_crypto_amount">Amount to withdraw:</label>
+    <div class="col-sm-3">
+        <p>
+            {{ form_widget(form.amount, {"without_currency_label": true, 'attr': {'class': 'form-control'} }) }}
+        </p>
+    </div>
+
+    <div class="col-sm-4">
+      {{ form_widget(form.save, {'label': 'action.withdraw'|trans({'%currencyCode%': currencyCode})}) }}
+    </div>
+</div>
+<div class="text-danger">
+    {{ form_errors(form.amount) }}
+</div>
+{{ form_end(form) }}

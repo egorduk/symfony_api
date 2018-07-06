@@ -1,0 +1,44 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: config.yml }
+    - { resource: bundle/nsq.yml }
+
+framework:
+  trusted_proxies: ['10.0.0.0/8']
+  validation:
+    cache: redis
+
+services:
+  validator.mapping.cache.redis: @cache.app
+  doctrine.orm.default_query_cache: @cache.app
+  doctrine.orm.default_metadata_cache: @cache.app
+  doctrine.orm.default_result_cache: @cache.app
+  # default session handler is redis
+  session.handler: @cache.session
+
+twig:
+  strict_variables: false
+
+monolog:
+  handlers:
+    main:
+      type:         fingers_crossed
+      action_level: error
+      handler:      grouped_main
+
+    sentry:
+      type: raven
+      dsn: %sentry_dsn%
+      level: notice
+
+    grouped_main:
+      type: group
+      members: [sentry, streamed_main]
+
+    streamed_main:
+      type:  stream
+      path:  "%kernel.logs_dir%/%kernel.environment%.log"
+      level: error
+
+    console:
+      type:  console

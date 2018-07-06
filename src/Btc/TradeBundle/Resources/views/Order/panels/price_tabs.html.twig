@@ -1,0 +1,31 @@
+{% trans_default_domain 'Trade' %}
+<div class="well-heading">
+    <div class="box-nav">
+        <div class="pull-right">
+            <a class="btn btn-question">
+                <i class="icon icon-question"></i>
+            </a>
+        </div>
+        <ul class="nav nav-tabs tabs-long" role="tablist">
+            <li role="presentation" class="active">
+                <a href="#limit" aria-controls="limit" role="tab" data-toggle="tab">{{ 'panels.limit_price.title'|trans }}</a>
+            </li>
+            <li role="presentation">
+                <a href="#market" aria-controls="market" role="tab" data-toggle="tab">{{ 'panels.market_price.title'|trans }}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- Tab panes -->
+<div class="tab-content" data-balance-base="{{ walletBalance.base }}" data-balance-quote="{{ walletBalance.quote }}">
+    <div role="tabpanel" class="tab-pane active" id="limit">
+        <div class="order-form">
+        {% include 'BtcTradeBundle:Order/panels:limit_tab.html.twig' %}
+        </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="market">
+        <div class="order-form">
+        {% include 'BtcTradeBundle:Order/panels:market_tab.html.twig' %}
+        </div>
+    </div>
+</div>

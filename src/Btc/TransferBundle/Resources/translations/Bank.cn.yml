@@ -1,0 +1,12 @@
+payza:
+  description: 一款重点服务于电子商务处理、企业支付和全球个人与企业汇款的全球在线支付平台。
+  notice: '处理通过 Payza 完成的存款可能需要 12 到 48 小时不等。'
+egopay:
+  description: 一款可信的全球电子支付处理程序，为全世界的个人和企业提供即时交易功能。
+okpay:
+  description: '一款 P2P 和 B2C 基于网络的支付系统，为用户提供虚拟账户，以支持寄存、发送、接收和提取资金以及在线购物。 '
+perfect_money:
+  description: 一款在线支付处理程序，为用户提供电子钱包以及即时支付等功能。
+wire:
+  description: '从货币选择器中选择“美元”用于国际电汇，或选择“欧元”用于 SEPA 电汇。'
+important_notice: 重要提示：

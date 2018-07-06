@@ -1,0 +1,13 @@
+{% extends 'BtcTransferBundle::layout.html.twig' %}
+{% trans_default_domain 'Deposit' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12">
+            {% include 'BtcTransferBundle:WireTransfer:show_' ~ deposit.wallet.currency.code|lower ~ '.html.twig' %}
+            {% if deposit.status == 'new' %}
+              <a href="{{ path('btc_wire_transfer_deposits_cancel', {'id': deposit.id}) }}" class="btn btn-orange">Cancel deposit request</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

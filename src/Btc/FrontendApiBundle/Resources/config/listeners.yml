@@ -1,0 +1,42 @@
+services:
+    kernel.event_listener.json_request_transformer:
+        class: Btc\FrontendApiBundle\Service\Listener\JsonRequestTransformerListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: 100 }
+
+    # uses for development only to skip the auth step
+    kernel.event_listener.dev_request_listener:
+        class: Btc\FrontendApiBundle\Service\Listener\DevRequestListener
+        arguments: ['%rest_api_debug_mode%', '%rest_api_debug_user_id%', '@security.token_storage', '@rest.repository.user']
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: 102 }
+
+    kernel.exception_listener.rest_exception_listener:
+        class: Btc\FrontendApiBundle\Service\Listener\RestExceptionListener
+        arguments: ['%rest_api_debug_mode%']
+        tags:
+            - { name: kernel.event_subscriber, event: kernel.exception, method: onKernelException }
+
+    kernel.exception_listener.dbal_exception_listener:
+        class: Btc\FrontendApiBundle\Service\Listener\DBALExceptionListener
+        arguments: ['%rest_api_debug_mode%']
+        tags:
+            - { name: kernel.event_subscriber, event: kernel.exception, method: onKernelException }
+
+    kernel.exception_listener.rest_addcess_denied_listener:
+        class: Btc\FrontendApiBundle\Service\Listener\RestAccessDeniedListener
+        arguments: ['%rest_api_debug_mode%']
+        tags:
+            - { name: kernel.event_subscriber, event: kernel.exception, method: onKernelException }
+
+    kernel.event_listener.security_listener:
+        class: Btc\FrontendApiBundle\Service\Listener\SecurityEventsListener
+        arguments: ['@rest.service.user_activity', '@em']
+        tags:
+            - { name: kernel.event_subscriber }
+
+    btc_user.listener.coin_submit:
+        class: Btc\FrontendApiBundle\Service\Listener\CoinSubmissionListener
+        arguments: ['@rest.service.mailer']
+        tags:
+            - { name: kernel.event_subscriber }

@@ -1,0 +1,55 @@
+{% block form_row %}
+    {% spaceless %}
+        {% set field_row_class = ['form-group spend-block'] %}
+        {% if errors|length > 0 %}
+            {% set field_row_class = field_row_class|merge(['has-error']) %}
+        {% endif %}
+        <div class="{{ field_row_class|join(' ') }}">
+                {{ form_label(form, null, {'label_attr': {'class': 'control-label'}}) }}
+                {% if (prefix is defined) or (suffix is defined) %}
+            <div class="box-control">
+                <div class="input-group">
+                    {% endif %}
+
+                    {% if prefix is defined %}
+                        <span class="input-group-addon">{{ prefix }}</span>
+                    {% endif %}
+
+                    {% set field_class = ['form-control'] %}
+                    {% if class is defined %}
+                        {% set field_class = field_class|merge([class]) %}
+                    {% endif %}
+
+                    {% if field_value is not defined %}
+                        {% set field_value = '' %}
+                    {% endif %}
+
+                    {{ form_widget(form, {'attr': {'class': field_class|join(' '), 'value': field_value}}) }}
+
+                    {% if suffix is defined %}
+                        <span class="input-group-addon">{{ suffix }}</span>
+                    {% endif %}
+
+                    {% if (prefix is defined) or (suffix is defined) %}
+                </div>
+                {% endif %}
+                </div>
+                {% if errors|length > 0 %}
+                    <div class="has-error form-error-bottom">
+                        <span class="help-block">{{ form_errors(form) }}</span>
+                    </div>
+                {% endif %}
+            </div>
+
+    {% endspaceless %}
+{% endblock %}
+
+{% block money_widget %}
+    {% spaceless %}
+        {% if without_currency_label is defined %}
+            {{ block('form_widget_simple') }}
+        {% else %}
+            {{ money_pattern|replace({ '{{ widget }}': block('form_widget_simple') })|raw }}
+        {% endif %}
+    {% endspaceless %}
+{% endblock money_widget %}

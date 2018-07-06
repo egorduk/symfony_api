@@ -1,0 +1,173 @@
+form:
+  market:
+    amountToSpend: 花费：
+    sellAmount: 出售：
+    total: 总数
+    subtotal: 小计：
+    fee: 费用：
+    receive: 'Approx. receive:'
+    spend: 'Approx. spend:'
+    exmarkets_fee: 'Exmarkets 费用：'
+    amount: 数额：
+    order: "Order:"
+  limit:
+    buyAmount: 购买数额：
+    sellAmount: 出售数额：
+    price: 价格：
+    amount: 数额：
+    total: "Total:"
+    order: "Order:"
+    fee: "Fee:"
+deals:
+  top_buyers:
+    headline: '前 7 位买家'
+  top_sellers:
+    headline: '前 7 位卖家'
+  top_8_buyers: "前 8 <strong>位买家</strong>"
+  top_8_sellers: "前 8 <strong>位卖家</strong>"
+  top:
+    bid: 买方价格
+    ask: 卖方价格
+  column:
+    title:
+      price: 价格
+      amount: 数额
+      value: 价值
+  live_orderbook:
+    no_orders: 'No Orders in the market'
+    no_sell_deals: 'There are no sell deals at the moment.'
+    no_buy_deals: 'There are no buy deals at the moment.'
+  already:
+    cancelled: 'This order was already cancelled'
+    completed: 'This order was already completed'
+flash:
+  success:
+    market_buy: 'Placed %amount% to buy %currency%'
+    market_sell: 'Created a deal to sell %amount%'
+    limit_buy: 'Created a deal to buy %amount% by %unit_price% price per unit'
+    limit_sell: 'Created a deal to sell %amount% by %unit_price% price per unit'
+    buy_deal_cancel_scheduled: 'Buy deal with remaining %amount_remaining% was scheduled to cancel'
+    sell_deal_cancel_scheduled: 'Sell deal with remaining %amount_remaining% was scheduled to cancel'
+  error:
+    buy_deal_cancel: 'Could not find an open buy deal requested to cancel.'
+    sell_deal_cancel: 'Could not find an open sell deal requested to cancel.'
+  danger:
+    instant_buy: 'Currently we could not place instant order as there are no available sells'
+  warning:
+    verify_lieutenant: 'To place orders you need to <a href="%link%">verify your account</a>.'
+order:
+  action:
+    buy: 购买
+    sell: 出售
+  limit:
+    headline: 限价订单
+  instant:
+    headline: 即时订单
+  buy_crypto:
+    BTC: 'Buy bitcoins'
+    LTC: 购买耐特币
+  sell_crypto:
+    BTC: 'Sell bitcoins'
+    LTC: 出售耐特币
+  wallet:
+    available: 'Available %currency%: %amount%'
+  open:
+    title: 未结订单
+    buy: 启动购买交易
+    sell: 启动出售交易
+  table:
+    id: 订单号
+    date: 日期/时间
+    amount: 数额
+    price: 价格
+    value: 价值
+    deal_type: 类型
+    actions: 操作
+    cancel: Cancel
+    expand: 'Expand to view partial transactions for this order'
+    remaining_amount: 'Remaining amount to fulfill order'
+    remaining_value: 'Remaining order value to fulfill order'
+    unit_price: 'Asked price per unit'
+    type:
+      1: Limit
+      2: Market
+  status:
+    1: 已完成
+    2: 已取消
+    3: 'Pending Cancel'
+  book:
+    empty: 您没有未结订单。
+  error:
+    buy: 'The buy deal: %id% was not found or does not belong to user: %user%.'
+    sell: 'The sell deal: %id% was not found or does not belong to user: %user%.'
+    cancel_buy: 'Cancel buy deal transaction has failed.'
+    cancel_sell: 'Cancel sell deal transaction has failed.'
+    instant_buy: 'Instant buy deal transaction has failed.'
+    instant_sell: 'Instant sell deal transaction has failed.'
+    limit_buy: 'Limit buy deal transaction has failed.'
+    limit_sell: 'Limit sell deal transaction has failed.'
+    wallet: 'Wallet ''%currency%'' was not found for user: %user% it must be available'
+transaction:
+  status:
+    1: 已完成
+  empty: 无任何交易
+  export_csv: '导出 CSV'
+title:
+  limit_order: 限价购买/出售
+  instant_order: 快速交易
+my_order_book: 未结订单
+my_orders: 我的订单
+balance: 'Balance'
+
+panels:
+  quick_buy_sell:
+    title: 'Quick Buy/Sell'
+    price_recalculated: 'The price will be recalculated in'
+    sell_all_your: 'Sell all your'
+    with_all_your: 'with all your'
+    quick: 'Quick'
+  chart:
+    title: 'Classic Candlestick'
+  limit_price:
+    title: 'Limit price'
+  market_price:
+    title: 'Market price'
+    price: 'Buy at the optimal market price'
+    price_hint: System will automatically trade by market price (sorted from high price to low price) till all %currency_pair% sold out.
+  balance:
+      available: 'Available'
+      reserved: 'Reserved'
+      total: 'Total'
+  recent_trades:
+    title: 'Recent Trades'
+    columns:
+      date: 'Date/Time'
+      price: 'Price'
+      quantity: 'Quantity'
+  news:
+    title: 'News'
+    disclosures: 'Disclosures'
+    next: 'Next'
+  orderbook:
+    title: 'Order book'
+    full_book: 'Full Book'
+    total_available: 'Total %currency_code% available'
+    sell_orders: 'Sell orders'
+    buy_orders: 'Buy orders'
+    columns:
+      price: 'Price'
+      amount: 'Amount'
+
+currency_bar:
+  last_price: 'Last price'
+  daily_change: 'Daily change'
+  todays_open: 'Today’s open'
+  volume_24h: '24h volume'
+  days_range: 'Day’s range'
+  currency:
+    BTC: 'Bitcoin'
+    USD: 'US Dollar'
+    ETH: 'Ethereum'
+    EUR: 'Euro'
+    BNK: 'Bankera'
+    LTC: 'LiteCoin'

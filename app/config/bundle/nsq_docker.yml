@@ -1,0 +1,8 @@
+exmarkets_nsq:
+  connections:
+    server1:
+      host: nsqd-1
+      port: 4150
+    server2:
+      host: nsqd-2
+      port: 4150

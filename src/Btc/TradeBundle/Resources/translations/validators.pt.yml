@@ -1,0 +1,13 @@
+order:
+  empty:
+    market: 'Não podemos executar a ordem imediata porque o mercado está vazio, faça uma ordem com limite.'
+  insufficient:
+    balance: 'Não há saldo suficiente'
+  min:
+    order_value: 'O valor mais baixo da ordem pode ser: %value% %currency%'
+  price:
+    blank: 'Campo de valor não pode estar em branco.'
+    zero_or_negative: 'Preço deve ser maior que 0.'
+  amount:
+    blank: 'Quantidade não pode estar em branco.'
+    zero_or_negative: 'Quantidade deve ser maior a 0.'

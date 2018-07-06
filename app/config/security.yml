@@ -1,0 +1,76 @@
+security:
+  encoders:
+    Btc\CoreBundle\Entity\User:
+      id: core.password_encoder
+
+  role_hierarchy:
+    ## Frontend API roles ##
+    ROLE_USER:              []
+    ROLE_VERIFIED_PERSONAL: [ROLE_USER]
+    ROLE_VERIFIED_BUSINESS: [ROLE_VERIFIED_PERSONAL]
+    ROLE_ADMIN:             [ROLE_VERIFIED_BUSINESS]
+    ROLE_EXCHANGER:         [ROLE_USER]
+    ROLE_SUPER_ADMIN:       [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+    ROLE_BLOCKED:           [IS_AUTHENTICATED_ANONYMOUSLY]
+    ## Trade API roles ##
+    ROLE_TRADES:            ROLE_PUBLIC
+    ROLE_ACCOUNT:           ROLE_PUBLIC
+    ROLE_VOUCHERS:          ROLE_PUBLIC
+
+  providers:
+    api_token_user_provider:
+      id: api_token_user_provider
+    trade_api_user_provider:
+      id: trade_api_user_provider
+    trade_api_auth_authenticator:
+      id: trade_api_auth_authenticator
+
+  firewalls:
+    dev:
+      pattern: ^/(_(profiler|wdt)|css|images|js)/
+      security: false
+
+    rest_api_secured_area:
+      pattern: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%
+      stateless: true
+      simple_preauth:
+        authenticator: api_token_authenticator
+      provider: api_token_user_provider
+
+    trade_api_secured_area:
+      pattern: ^/api/trade/v%trade_api_version%/(account|orders)
+      simple-preauth:
+        authenticator: trade_api_auth_authenticator
+      provider: trade_api_user_provider
+      stateless: true
+
+  access_control:
+    - { path: ^/api/v%rest_api_version%/doc, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/page, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/coins/submit, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/auth, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/users/info, role: ROLE_USER }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/users/update, role: ROLE_USER }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/users/send-pin, role: ROLE_USER }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/users/withdraw, role: ROLE_USER }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/users/cryptoaddresses, role: ROLE_USER }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/users/security, role: ROLE_USER }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/users/activities, role: ROLE_USER }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/users/preferences, role: ROLE_USER }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/users/tokens, role: ROLE_USER }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/orders/history, role: ROLE_USER }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/orders/open, role: ROLE_USER }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/users/stats, role: ROLE_USER }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/wallets/balance, role: ROLE_USER }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/wallets/deposit, role: ROLE_USER }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/wallets/withdraw, role: ROLE_USER }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/deposits/histories, role: ROLE_USER }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/withdraws/histories, role: ROLE_USER }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/vouchers, role: ROLE_USER }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%/fees, role: ROLE_USER }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/api/v%rest_api_version%, role: IS_AUTHENTICATED_ANONYMOUSLY }  # temporarily for all
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/prelogin$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/register$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^(/en|/cn|/fr|/ru|/ph|/es|/pt|)/resetting$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/api/trade/v%trade_api_version%/account$, role: ROLE_TRADES } #ROLE_ACCOUNT

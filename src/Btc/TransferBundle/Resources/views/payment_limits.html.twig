@@ -1,0 +1,26 @@
+{% trans_default_domain 'Bank' %}
+<table class="table table-bordered table-small">
+  <thead>
+  <tr>
+    <th>{{ 'payments.label.currency'|trans }}</th>
+    <th>{{ 'payments.label.daily'|trans }}</th>
+    <th>{{ 'payments.label.weekly'|trans }}</th>
+    <th>{{ 'payments.label.monthly'|trans }}</th>
+  </tr>
+  </thead>
+  <tbody>
+    {% for limit in model.paymentLimits %}
+    <tr>
+      {% set c = limit.currencyCode %}
+      <td><strong>{{ c }}</strong></td>
+      {% if limit.isUnlimited() %}
+      <td colspan="3" class="text-center"><strong>Unlimited</strong></td>
+      {% else %}
+      <td>{{ limit.daily|price(c) }}</td>
+      <td>{{ limit.weekly|price(c) }}</td>
+      <td>{{ limit.monthly|price(c) }}</td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

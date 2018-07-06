@@ -1,0 +1,20 @@
+#!/bin/sh
+
+ALL_HOOKS="pre-commit"
+
+DIR="$( cd "$( dirname "$0" )" && pwd )"
+
+ROOT="$DIR/.."
+HOOKS="$DIR/../app/Resources/githooks"
+if [ ! -d "$HOOKS" ]; then
+    ROOT="$DIR/../../.."
+    HOOKS="$DIR/../githooks"
+fi
+
+for HOOK in $ALL_HOOKS
+do
+    cp $HOOKS/$HOOK $ROOT/.git/hooks/.
+    chmod +x $ROOT/.git/hooks/$HOOK
+    echo "Installed git hook: [$HOOK]"
+done
+

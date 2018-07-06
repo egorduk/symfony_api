@@ -1,0 +1,8 @@
+# Twig Configuration
+twig:
+  debug:            %kernel.debug%
+  strict_variables: true
+  globals:
+    base_url_tag: %base_url_tag%
+    base_url: %base_url%
+    websocket_url: %websocket_url%

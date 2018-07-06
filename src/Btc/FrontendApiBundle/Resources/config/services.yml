@@ -1,0 +1,232 @@
+services:
+    api_token_user_provider:
+        class: Btc\FrontendApiBundle\Security\ApiTokenUserProvider
+        arguments: ['@em', '@rest.service.auth']
+
+    api_token_authenticator:
+        class: Btc\FrontendApiBundle\Security\ApiTokenAuthenticator
+        arguments: ['@security.http_utils']
+        public: false
+
+    rest.service.bank:
+        class: Btc\FrontendApiBundle\Service\BankService
+        arguments: ['@em', '%bank_entity%']
+
+    rest.service.country:
+        class: Btc\FrontendApiBundle\Service\CountryService
+        arguments: ['@em', '%country_entity%']
+
+    rest.service.currency:
+        class: Btc\FrontendApiBundle\Service\CurrencyService
+        arguments: ['@em', '%currency_entity%']
+
+    rest.service.market:
+        class: Btc\FrontendApiBundle\Service\MarketService
+        arguments: ['@em', '%market_entity%']
+
+    rest.service.news:
+        class: Btc\FrontendApiBundle\Service\NewsService
+        arguments: ['@em', '%news_entity%', '@exm_news.repository.article']
+
+    rest.service.wallet:
+        class: Btc\FrontendApiBundle\Service\WalletService
+        arguments:
+            - '@em'
+            - '@rest.repository.currency'
+            - '@rest.repository.bank'
+            - '@rest.repository.wallet_operation'
+            - '@form.factory'
+            - '@jms_serializer'
+            - '%wallet_entity%'
+            - '%autodeposit_currency_on_registration%'
+
+    rest.service.user_fee_set:
+        class: Btc\FrontendApiBundle\Service\UserFeeSetService
+        arguments: ['@em', '%user_fee_set_entity%']
+
+    rest.service.user_order:
+        class: Btc\FrontendApiBundle\Service\UserOrderService
+        arguments:
+            - '@em'
+            - '@form.factory'
+            - '@rest.service.deal_submission'
+            - '@event_dispatcher'
+            - '@rest.service.market'
+            - '@rest.repository.wallet'
+            - '@rest.service.wallet'
+            - '@rest.service.fee_service'
+            - '%user_order_entity%'
+
+    rest.service.auth:
+        class: Btc\FrontendApiBundle\Service\AuthService
+        arguments:
+          - '%jwt_private_key%'
+          - '%jwt_public_key%'
+          - '%jwt_token_lifetime%'
+
+    rest.service.user:
+        class: Btc\FrontendApiBundle\Service\UserService
+        arguments:
+            - '@em'
+            - '@form.factory'
+            - '@rest.service.auth'
+            - '@security.encoder_factory'
+            - '@core.generator'
+            - '@rest.service.fee_service'
+            - '@rest.service.wallet'
+            - '@jms_serializer'
+            - '@rest.service.user_registration'
+            - '@rest.service.newsletter'
+            - '@event_dispatcher'
+            - '@rest.repository.user_business_info'
+            - '@rest.repository.user_personal_info'
+            - '@rest.repository.verification'
+            - '@rest.service.phone'
+            - '@session'
+            - '@rest.repository.user_preference'
+            - '@rest.verification.uploader'
+            - '@rest.util.seed'
+            - '@rest.service.notifications'
+            - '@rest.repository.order'
+            - '%user_entity%'
+
+    rest.service.activity_logger:
+        class: Btc\FrontendApiBundle\Service\ActivityLoggerService
+        arguments: ['@event_dispatcher']
+
+    rest.redis:
+        class: Btc\FrontendApiBundle\Service\RestRedis
+        arguments: ['%redis_host%', '%redis_port%', '%redis_db%']
+
+    rest.verification.uploader:
+        class: Btc\FrontendApiBundle\Service\VerificationUploaderService
+        arguments: ['@em', '%file_upload_dir%', '@validator']
+
+    rest.service.mailer:
+        class: Btc\FrontendApiBundle\Service\EmailSenderService
+        arguments:
+            - '@nsq'
+            - '@markdown.parser'
+            - '@twig'
+            - '@rest.repository.email_template'
+            - '%mailer_from_name%'
+            - '%mailer_from_email%'
+            - '@logger'
+            - '@rest.repository.settings'
+            - '%router.request_context.scheme%://%router.request_context.host%'
+            - '%token_submission_email%'
+
+    rest.service.notifications:
+        class: Btc\FrontendApiBundle\Service\NotificationsService
+        arguments: ['@rest.service.mailer', '@rest.repository.settings']
+
+    rest.service.coin_submit:
+        class: Btc\FrontendApiBundle\Service\CoinSubmitService
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '%coin_submission_entity%'
+            - '@form.factory'
+            - '@rest.repository.coin_submission'
+            - '@event_dispatcher'
+
+    rest.service.newsletter:
+        class: Btc\FrontendApiBundle\Service\NewsletterService
+        arguments: ['@rest.repository.user_preference', '@nsq', '%newsletter_email%']
+
+    rest.service.phone:
+        class: Btc\FrontendApiBundle\Service\PhoneService
+        arguments: ['@rest.service.sms', '@rest.service.pin', '@rest.repository.phone_verification', '@rest.repository.user']
+
+    rest.service.sms:
+        class: Btc\FrontendApiBundle\Service\SmsService
+        arguments: ['@rest.lib.sms', '%twilio_from%']
+
+    rest.service.pin:
+        class: Btc\FrontendApiBundle\Service\PinService
+
+    rest.util.seed:
+        public: false
+        class: Btc\CoreBundle\Util\SeedGenerator
+
+    rest.lib.sms:
+        class: Services_Twilio
+        arguments: ['%twilio_sid%', '%twilio_token%', '%twilio_version%']
+
+    rest.service.order_book:
+        class: Btc\Component\Market\Service\OrderBookService
+        arguments: ['@rest.component.order_book', '@logger']
+
+    rest.component.order_book:
+        class: Btc\Component\Market\Service\OrderBook
+        arguments: ['@rest.lib.http']
+
+    rest.lib.http:
+        class: Btc\FrontendApiBundle\Service\HttpClientService
+        arguments: ['%orderbook_api_endpoint%']
+
+    rest.service.deal_submission:
+        class: Btc\Component\Market\Service\OrderSubmission
+        arguments: ['@db', '@nsq', '@rest.service.order_book', '@rest.repository.wallet', '@em']
+
+    rest.service.fee_service:
+        class: Btc\Component\Market\Service\FeeService
+        arguments: ['@em']
+
+#    rest.service.coin.btc.address:
+#        class: Btc\TransferBundle\Service\Coin\AddressService
+#        arguments: ['@exm_payment_core.gateway.coin.btc.api', '@rest.repository.btc_address']
+#
+#    rest.service.coin.ltc.address:
+#        class: Btc\TransferBundle\Service\Coin\AddressService
+#        arguments: ['@exm_payment_core.gateway.coin.ltc.api', '@rest.repository.ltc_address']
+#
+#    rest.service.coin.eth.address:
+#        class: Btc\TransferBundle\Service\Coin\AddressService
+#        arguments: ['@exm_payment_core.gateway.coin.eth.api', '@rest.repository.eth_address']
+
+    rest.service.qr_code:
+        class: Btc\FrontendApiBundle\Service\QrCodeService
+        calls:
+            - [setProviderName, ['%qr_code.provider%']]
+
+    rest.service.user_activity:
+        class: Btc\FrontendApiBundle\Service\UserActivityService
+        arguments: ['@rest.repository.activity']
+
+    rest.form.type.boolean:
+        class: Btc\FrontendApiBundle\Form\BooleanType
+        tags:
+            - { name: form.type, alias: boolean_type}
+
+    rest.service.market_grouping:
+        class: Btc\FrontendApiBundle\Service\MarketGroupService
+        arguments: ['@rest.redis', '@rest.repository.market']
+
+    rest.service.withdrawal_persister:
+        class: Exmarkets\PaymentCoreBundle\Gateway\Service\WithdrawalPersister
+        arguments: ['@db', '@nsq']
+
+    rest.service.user_registration:
+        class: Btc\FrontendApiBundle\Service\UserRegistrationService
+        arguments: ['@security.encoder_factory', '@core.generator', '@em']
+
+#    btc_voucher.type.voucher_currency_selector:
+#        class: Btc\VoucherBundle\Form\Type\VoucherCurrencySelectorType
+#        arguments: [@em, ["USD", "EUR", "BTC", "LTC"]]
+#        tags:
+#          - { name: form.type, alias: voucher_currency_selector }
+
+    rest.service.voucher_generator:
+        class: Btc\Component\Market\Util\VoucherGenerator
+
+    rest.service.voucher:
+        class: Btc\Component\Market\Service\Voucher
+        arguments:
+            - '@db'
+            - '@nsq'
+            - '@rest.service.voucher_generator'
+            - '@form.factory'
+            - '@em'
+            - '@event_dispatcher'
+            - '@rest.service.mailer'
+            - '%voucher_entity%'

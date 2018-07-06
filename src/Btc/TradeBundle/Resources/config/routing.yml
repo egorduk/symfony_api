@@ -1,0 +1,10 @@
+trade_order:
+    resource: "@BtcTradeBundle/Controller/OrderController.php"
+    type: annotation
+    prefix: /order
+
+trade_open_order:
+    resource: "@BtcTradeBundle/Controller/OpenOrderController.php"
+    type: annotation
+    prefix: /order
+

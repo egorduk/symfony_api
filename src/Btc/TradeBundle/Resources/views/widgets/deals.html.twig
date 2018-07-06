@@ -1,0 +1,21 @@
+{% trans_default_domain 'Trade' %}
+
+<table class="table table-condensed table-striped table-prices">
+    <thead>
+        <tr>
+            <th>{{ 'deals.column.title.price'|trans|upper }} <small>({{ currency_pair() }})</small></th>
+            <th>{{ 'deals.column.title.amount'|trans|upper }} <small>({{ base_currency().code }})</small></th>
+            <th>{{ 'deals.column.title.value'|trans|upper }} <small>({{ quote_currency().code }})</small></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for deal in deals %}
+        <tr data-amounts="{{ deal.amount }}" data-price="{{ deal.price }}">
+            <td>{{ deal.price|fmt_price }}</td>
+            <td>{{ deal.amount|fmt_base }}</td>
+            <td>{{ (deal.price * deal.amount)|fmt_quote }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<p class="js-no-orders" {% if deals|length > 0 %}style="display:none;"{% endif %}>{{ 'deals.live_orderbook.no_orders'|trans }}</p>

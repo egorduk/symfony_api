@@ -1,0 +1,70 @@
+imports:
+  - { resource: parameters.yml }
+  - { resource: config.yml }
+  - { resource: bundle/nsq.yml }
+
+parameters:
+  # tests uses a queue in order to investigate scheduled jobs
+  ticker_mock_path: "%kernel.root_dir%/logs/behat_ticker.dat"
+
+services:
+  nsq:
+    class: Exmarkets\NsqBundle\Test\NsqMock
+
+  cache.ticker.connection:
+    class: Btc\FrontendBundle\Test\TickerCache
+    arguments: ["%ticker_mock_path%"]
+
+  # default session handler is redis
+  session.handler: @cache.session
+  # mock address services
+  exm_payment_core.service.coin.btc.address:
+    class: Btc\TransferBundle\Test\CoinAddressService
+    arguments: [@btc_transfer.repository.btc_address_repository]
+  exm_payment_core.service.coin.ltc.address:
+    class: Btc\TransferBundle\Test\CoinAddressService
+    arguments: [@btc_transfer.repository.ltc_address_repository]
+  exm_payment_core.gateway.coin.btc.api:
+    class: Btc\TransferBundle\Test\CoinApi
+  exm_payment_core.gateway.coin.ltc.api:
+    class: Btc\TransferBundle\Test\CoinApi
+  btc_frontend.service.orderbook:
+    class: Btc\FrontendBundle\Test\OrderBookService
+    arguments: ['@btc_trade.repository.order_repository']
+
+framework:
+  test: ~
+  profiler:
+    enabled: true
+  session:
+    cookie_domain: ""
+    cookie_secure: false # allow insecure cookies http://
+    cookie_httponly: false # it may need to access cookies inside behat context
+
+# Doctrine Configuration
+doctrine:
+  dbal:
+    dbname: %database_name%_test
+
+web_profiler:
+  toolbar: false
+  intercept_redirects: false
+
+monolog:
+  handlers:
+    main:
+      type:         fingers_crossed
+      action_level: error
+      handler:      grouped_main
+
+    grouped_main:
+      type: group
+      members: [streamed_main]
+
+    streamed_main:
+      type:  stream
+      path:  "%kernel.logs_dir%/%kernel.environment%.log"
+      level: error
+
+    console:
+      type:  console

@@ -1,0 +1,105 @@
+{% trans_default_domain 'Withdrawal' %}
+
+<div class="row row-sm">
+    <div class="col-sm-6">
+        {{ form_row(form.amount, {'class': 'js-amount-input'}) }}
+    </div>
+    <div class="col-sm-6">
+        {{ form_row(form.currency, {'class': 'js-currency-selector'}) }}
+    </div>
+</div>
+<div class="row row-sm">
+    <div class="col-sm-12 form-group">
+        <label class="control-label" for="fee">{{ 'withdrawal.fees'|trans }}</label>
+        <input id="fee" type="text" readonly="" value="0.00" class="form-control js-fee-input">
+    </div>
+</div>
+<hr/>
+
+<h4 class="text-orange">Beneficiary Account</h4>
+
+
+{{ form_row(form.beneficiaryAccountNumber) }}
+{{ form_row(form.beneficiaryAccountName) }}
+
+<div class="row row-sm">
+    <div class="col-sm-8">
+        {{ form_row(form.beneficiaryAccountAddress) }}
+    </div>
+    <div class="col-sm-4">
+        {{ form_row(form.beneficiaryAccountCity) }}
+    </div>
+</div>
+
+<div class="row row-sm">
+    <div class="col-sm-6">
+        {{ form_row(form.beneficiaryAccountState) }}
+    </div>
+    <div class="col-sm-6">
+        {{ form_row(form.beneficiaryAccountPostalCode) }}
+    </div>
+</div>
+
+{{ form_row(form.beneficiaryAccountCountry) }}
+
+{# Beneficiary Bank #}
+<hr/>
+
+<h4 class="text-orange">Beneficiary Bank</h4>
+
+<div class="row row-sm">
+    <div class="col-sm-8">
+        {{ form_row(form.beneficiaryBankName) }}
+    </div>
+    <div class="col-sm-4">
+        {{ form_row(form.beneficiaryBankCode) }}
+    </div>
+</div>
+
+<div class="row row-sm">
+    <div class="col-sm-8">
+        {{ form_row(form.beneficiaryBankAddress) }}
+    </div>
+    <div class="col-sm-4">
+        {{ form_row(form.beneficiaryBankCity) }}
+    </div>
+</div>
+
+<div class="row row-sm">
+    <div class="col-sm-6">
+        {{ form_row(form.beneficiaryBankState) }}
+    </div>
+    <div class="col-sm-6">
+        {{ form_row(form.beneficiaryBankPostalCode) }}
+    </div>
+</div>
+
+{{ form_row(form.beneficiaryBankCountry) }}
+{{ form_row(form.comment) }}
+<hr/>
+<h4 class="text-orange optional">Correspondent Bank (optional) <span id="toggle" class="pull-right glyphicon glyphicon-collapse-down"></span></h4>
+<div style="display: none">
+{{ form_row(form.correspondentBankAccount) }}
+
+<div class="row row-sm">
+    <div class="col-sm-8">
+        {{ form_row(form.correspondentBankName) }}
+    </div>
+    <div class="col-sm-4">
+        {{ form_row(form.correspondentBankCode) }}
+    </div>
+</div>
+
+<div class="row row-sm">
+    <div class="col-sm-8">
+        {{ form_row(form.correspondentBankAddress) }}
+    </div>
+    <div class="col-sm-4">
+        {{ form_row(form.correspondentBankCity) }}
+    </div>
+</div>
+
+{{ form_row(form.correspondentBankState) }}
+{{ form_row(form.correspondentBankPostalCode) }}
+{{ form_row(form.correspondentBankCountry) }}
+</div>

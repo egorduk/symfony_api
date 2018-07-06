@@ -1,0 +1,17 @@
+{% extends 'BtcTransferBundle::layout.html.twig' %}
+{% trans_default_domain 'Deposit' %}
+{% set page_title = 'deposit.crypto.offline'|trans %}
+
+{% block content %}
+    <div class="page-header">
+        <h2>{{ page_title }}</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-danger">
+                {{ 'deposit.crypto.offline_desc'|trans }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

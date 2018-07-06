@@ -1,0 +1,93 @@
+{% trans_default_domain 'Trade' %}
+<table class="table-bordered table-hover table-condensed table-striped table">
+  <thead>
+  <tr>
+    <th>{{ 'order.table.id'|trans }}</th>
+    <th>{{ 'order.table.deal_type'|trans }}</th>
+    <th>{{ 'order.table.deal_side'|trans }}</th>
+    <th>{{ 'order.table.date'|trans }}</th>
+    <th class="text-right">{{ 'order.table.price'|trans }}</th>
+    <th class="text-right">{{ 'order.table.amount'|trans }}</th>
+    <th class="text-right">{{ 'order.table.value'|trans }}</th>
+    <th class="text-right">{{ 'order.table.actions'|trans }}</th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for order in orders %}
+    {% set mi = market_info(order.market) %}
+    <tr>
+      <td>
+        {{ order.id }}
+        {% if order.transactions is not empty %}
+          <button title="{{ 'order.table.expand'|trans }}" type="button" class="btn btn-xs js-expand-deal" data-target="{{ order.id }}">
+            <i class="glyphicon glyphicon-plus"></i>
+          </button>
+        {% endif %}
+      </td>
+      <td>{{ ('order.table.type.' ~ order.type)|trans }}</td>
+      <td class="text-{% if order.side == 'BUY' %}yellow {% else %}orange {% endif %}">{{ ('order.table.side.' ~ order.side)|trans }}</td>
+      <td>{{ order.createdAt|date('Y-m-d H:i:s') }}</td>
+      <td class="text-right">
+          {% if order.isMarket %}
+            <center>~</center>
+          {% else %}
+            {{ mi.formatPrice(order.askedUnitPrice) }}
+          {% endif %}
+      </td>
+      <td class="text-right">
+        {{ mi.formatBase(order.amount) }}
+      </td>
+      <td class="text-right">
+        {% if order.isMarket %}
+           <center>~</center>
+        {% else %}
+            {{ mi.formatQuote(order.orderValue) }}
+        {% endif %}
+      </td>
+      <td class="text-right">
+{# {% if not order.isMarket %} #}
+     {{ form_start(forms[order.id]) }}
+       {{ form_rest(forms[order.id]) }}
+       <button type="submit" class="btn btn-xs btn-danger">
+         {{ 'order.table.cancel'|trans }}
+       </button>
+     {{ form_end(forms[order.id]) }}
+      {#{% endif %}#}
+</td>
+</tr>
+{% if order.transactions is not empty %}
+<tr class="js-expand-deal-{{ order.id }} expanded-order-row" style="display: none">
+ <td colspan="8">{{ 'transaction.completed'|trans }}</td>
+</tr>
+{% for partial in order.transactions %}
+<tr class="js-expand-deal-{{ order.id }} expanded-order-row" style="display: none">
+ <td colspan="3">{{ order.id }}</td>
+ <td>{{ partial.completedAt|date('Y-m-d H:i:s') }}</td>
+ <td class="text-right">{{ mi.formatPrice(partial.price) }}</td>
+ <td class="text-right">{{ mi.formatBase(partial.amount|abs) }}</td>
+ <td class="text-right">{{ mi.formatQuote(partial.value) }}</td>
+ <td></td>
+</tr>
+{% endfor %}
+<tr class="js-expand-deal-{{ order.id }} expanded-order-row last-expanded-order-row" style="display: none">
+ <td colspan="5">{{ 'transaction.remaining'|trans }}</td>
+ <td class="text-right">{% if not order.isMarket %}{{ mi.formatBase(order.amountLeft) }}{% endif %}</td>
+ <td class="text-right">
+     {% if order.isMarket %}
+         <center>~</center>
+     {% else %}
+         {{ mi.formatQuote(order.amountLeft * order.askedUnitPrice) }}
+     {% endif %}
+ </td>
+ <td></td>
+</tr>
+{% endif %}
+<!-- User has no open orders -->
+{% else %}
+<tr>
+<td colspan="8">{{ 'order.book.empty'|trans }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+

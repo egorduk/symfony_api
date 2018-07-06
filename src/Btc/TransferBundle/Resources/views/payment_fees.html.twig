@@ -1,0 +1,25 @@
+{% trans_default_domain 'Balance' %}
+{% if fees|length > 0 %}
+  {% set first = fees[0] %}
+  <div class="well well-dark">
+      <h4 class="well-name">{{ first.name }} {{ 'fees'|trans }}</h4>
+  <table class="table table-bordered table-small">
+      <thead>
+      <tr>
+          <th><strong>{{ 'processor'|trans }}</strong></th>
+          <th>{{ 'fee'|trans }}</th>
+          <th>{{ 'term'|trans }}</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for fee in fees|format_fees %}
+          <tr>
+              <td><strong>{{ fee.bank }}</strong></td>
+              <td>{{ fee.fee }}</td>
+              <td>{{ fee.term }}</td>
+          </tr>
+      {% endfor %}
+      </tbody>
+  </table>
+  </div>
+{% endif %}

@@ -1,0 +1,92 @@
+{% trans_default_domain 'Trade' %}
+
+{% if app.user %}
+    <div class="panel">
+        <div class="panel-heading">
+            <div class="pull-right">
+                <a class="btn btn-collapsed" role="button" data-toggle="collapse"  href="#collapseOrders" aria-expanded="true" aria-controls="collapseOrders">
+                    <i class="icon icon-collapse"></i>
+                </a>
+            </div>
+            <div class="panel-title">
+                Open orders
+            </div>
+        </div>
+        <div id="collapseOrders" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <div class="text">You do not have open orders yet.</div>
+                <div class="order-preview">
+                    <div class="control-label">28 Oct 2017, 04:02 PM</div>
+                    <div class="info">
+                        <a class="link link-close"><i class="icon icon-close"></i></a>
+                        <div class="row row-no">
+                            <div class="col-sm-2">
+                                <span class="green">Buy</span>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="amount"><span class="white">0.00392436 BTC</span></div>
+                            </div>
+                            <div class="col-sm-1">
+                                at
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="amount"><span class="white">2,548.18 USD</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress progress-small">
+                        <div class="progress-bar progress-bar-buy" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                            <span class="sr-only">40% Complete (success)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-preview">
+                    <div class="control-label">28 Oct 2017, 04:02 PM</div>
+                    <div class="info">
+                        <a class="link link-close"><i class="icon icon-close"></i></a>
+                        <div class="row row-no">
+                            <div class="col-sm-2">
+                                <span class="orange">Sell</span>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="amount"><span class="white">0.0056436 BTC</span></div>
+                            </div>
+                            <div class="col-sm-1">
+                                at
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="amount"><span class="white">258.18 USD</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress progress-small">
+                        <div class="progress-bar progress-bar-sell" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                            <span class="sr-only">80% Complete (success)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="text-right"><a class="link link-more" href="/order/open">My Orders <span class="icon icon-slide-right"></span></a></div>
+        </div>
+    </div>
+{% else %}
+    <div class="panel">
+        <div class="panel-heading">
+            <div class="pull-right">
+                <a class="btn btn-collapsed" role="button" data-toggle="collapse" href="#collapseOrdersNull" aria-expanded="true" aria-controls="collapseOrdersNull">
+                    <i class="icon icon-collapse"></i>
+                </a>
+            </div>
+            <div class="panel-title">
+                Open orders
+            </div>
+        </div>
+        <div id="collapseOrdersNull" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <div class="text">You do not have open orders yet.</div>
+            </div>
+        </div>
+    </div>
+{% endif %}

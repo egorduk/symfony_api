@@ -1,0 +1,19 @@
+#!/bin/sh
+
+TARGET="$EXMARKETS_PLAYBOOK"
+
+if [ -z "$TARGET" ]; then
+    echo "playbook needs to be exported for archive package"
+    echo "run --> export EXMARKETS_PLAYBOOK='~/php/playbook-deployment'"
+    exit 1
+fi
+
+LOCATION="$TARGET/roles/frontend/files"
+if [ ! -d "$LOCATION" ]; then
+    mkdir $LOCATION
+fi
+
+tar --exclude-from=.tarignore --exclude-vcs -czf $LOCATION/frontend.tar.gz .
+
+echo "Have moved package to $LOCATION/frontend.tar.gz"
+

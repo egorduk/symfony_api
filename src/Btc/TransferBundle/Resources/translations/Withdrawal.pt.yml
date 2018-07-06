@@ -1,0 +1,49 @@
+withdrawal:
+  title: 'Saque com %bank%'
+  egopay:
+    title: 'Saque com EgoPay'
+  submit: Saque
+  form:
+    foreign_account: Endereço
+    auth_code: 'Código de aut de dois-fatores'
+  error:
+    invalid_address: 'Endereço de carteira não valido'
+  flash:
+    success_amount: 'Pedido de saque de %amount% está agendado para processamento.'
+  please_select: 'Por favor, <strong>escolha opção de pagamento</strong> para seu saque:'
+  available_balance: 'Saldo disponível'
+  amount: 'Valor do saque:'
+  fees: 'Taxa do saque:'
+headers:
+  anti_money_laundering: 'Saques máximos de acordo com a nossa política de prevenção de lavagem de dinheiro:'
+  unverified_limits: 'Saque máximo para usuários não verificados:'
+important_notice: 'Aviso importante:'
+aml_note: 'Devido a nossa política PLD, só permitimos sacar um valor que é igual ou menor ao valor que você depositou via uma gateway específica. Esta regra não aplica ao dinheiro ganho através das negociações na nossa plataforma. EXEMPLO: Se você depositou $10,000 via EgoPay e depois ganhou $1,000 de lucro, você poderá sacar $11,000 (lucro do depósito) via EgoPay ou $10,000 (depósito) via EgoPay e $1,000 (lucro) via qualquer outra gateway de pagamento.'
+note: 'Por favor, também note que atualmente estamos porcessando todos os saques manualmente. Isto significa que seu pedido de saque pode demorar até 24 horas via Payza e EgoPay e até 48 horas via Perfect Money e OKPay.'
+wire:
+  comment: Comentário
+  amount: 'Valor*'
+  beneficiary_account_number: 'Número da Conta*'
+  beneficiary_account_name: 'Nome*'
+  beneficiary_account_address: 'Rua, No Casa, PO BOX*'
+  beneficiary_account_city: 'Cidade*'
+  beneficiary_account_country: 'País*'
+  beneficiary_account_state: Estado
+  beneficiary_account_postal_code: 'CEP*'
+  beneficiary_bank_name: 'Nome do Banco*'
+  beneficiary_bank_code: 'SWIFT/BIC *'
+  beneficiary_bank_address: 'Rua, No Casa, PO BOX*'
+  beneficiary_bank_other_info: 'Outra info'
+  beneficiary_bank_city: 'Cidade*'
+  beneficiary_bank_state: Estado
+  beneficiary_bank_postal_code: 'CEP*'
+  beneficiary_bank_country: 'País*'
+  correspondent_bank_account: 'Conta Bancária'
+  correspondent_bank_name: 'Nome do Banco*'
+  correspondent_bank_code: 'Código do Banco'
+  correspondent_bank_address: 'Rua, No Casa, PO BOX*'
+  correspondent_bank_other_info: 'Outra info'
+  correspondent_bank_city: Cidade
+  correspondent_bank_state: Estado
+  correspondent_bank_postal_code: CEP
+  correspondent_bank_country: País

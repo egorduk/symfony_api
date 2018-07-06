@@ -1,0 +1,10 @@
+{% extends 'BtcAccountBundle::layout.html.twig' %}
+
+{% block container %}
+    {% include 'BtcAccountBundle:widgets:account_navbar.html.twig' %}
+    <div class="row-flex">
+        <div class="content-center full">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,3 @@
+warn:
+  orders:
+    verify: 'Your account needs to be verified in order to trade.'

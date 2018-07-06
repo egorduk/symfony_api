@@ -1,0 +1,28 @@
+services:
+  btc_trade.repository.wallet_operation:
+    class: Doctrine\Common\Persistence\ObjectRepository
+    factory_service: doctrine
+    factory_method: getRepository
+    arguments: ["BtcCoreBundle:WalletOperation"]
+
+  operations:
+    alias: btc_trade.repository.wallet_operation
+
+  btc_trade.repository.market:
+    class: Doctrine\Common\Persistence\ObjectRepository
+    factory_service: doctrine
+    factory_method: getRepository
+    arguments: ["BtcCoreBundle:Market"]
+
+  markets:
+    alias: btc_trade.repository.market
+
+  btc_trade.repository.transaction_repository:
+    class: Doctrine\Common\Persistence\ObjectRepository
+    factory_service: doctrine
+    factory_method: getRepository
+    arguments: ["BtcCoreBundle:Transaction"]
+
+  transactions:
+    alias: btc_trade.repository.transaction_repository
+

@@ -1,0 +1,49 @@
+withdrawal:
+  title: 'RETRAIT AVEC %bank%'
+  egopay:
+    title: 'RETRAIT AVEC EGOPAY'
+  submit: RETRAIT
+  form:
+    foreign_account: Adresse
+    auth_code: 'Code d’authentification'
+  error:
+    invalid_address: 'Wallet address is not valid'
+  flash:
+    success_amount: 'Withdrawal request for %amount% is scheduled for processing.'
+  please_select: "Veuillez <strong>sélectionner l’option de paiement</strong> de votre retrait\_:"
+  available_balance: 'Available balance'
+  amount: 'Montant à retirer:'
+  fees: 'Frais de retrait:'
+headers:
+  anti_money_laundering: 'Retraits maximum conformément à notre politique de lutte contre le blanchiment d’argent:'
+  unverified_limits: "Retraits maximums pour utilisateurs non vérifiés\_:"
+important_notice: "Remarque importante\_:"
+aml_note: "Conformément à notre politique anti-blanchiment, vous ne pouvez effectuer qu’un retrait dont le montant est inférieur ou égal au montant que vous avez déposé via une passerelle particulière. Cette règle ne s’applique pas à l’argent gagné par le biais des transactions effectuées sur notre plate-forme. EXEMPLE\_: Si vous avez déposé 10\_000\_$ via EgoPay et réalisé ultérieurement un bénéfice de 1\_000\_$, vous pourrez retirer 11\_000\_$ (dépôt + bénéfice) via EgoPay ou 10\_000\_$ (dépôt) via EgoPay et 1\_000\_$ (bénéfice) via toute autre passerelle de paiement."
+note: 'Notez aussi qu’à l’heure actuelle, nous traitons tous les retraits manuellement. En d’autres termes, le traitement de vos demandes de retrait peut prendre jusqu’à 24 heures via Payza et EgoPay, et jusqu’à 48 heures via Perfect Money et OKPay.'
+wire:
+  comment: Commentaire
+  amount: 'Montant*'
+  beneficiary_account_number: 'Numéro de compte*'
+  beneficiary_account_name: 'Nom*'
+  beneficiary_account_address: 'Rue, numéro, BOÎTE POSTALE*'
+  beneficiary_account_city: 'Ville*'
+  beneficiary_account_country: 'Pays*'
+  beneficiary_account_state: Département
+  beneficiary_account_postal_code: 'Code postal*'
+  beneficiary_bank_name: 'Nom de la banque*'
+  beneficiary_bank_code: 'SWIFT/BIC*'
+  beneficiary_bank_address: 'Rue, numéro, BOÎTE POSTALE*'
+  beneficiary_bank_other_info: 'Other info'
+  beneficiary_bank_city: "Ville*\_"
+  beneficiary_bank_state: Département
+  beneficiary_bank_postal_code: 'Code postal*'
+  beneficiary_bank_country: "Pays*\_:"
+  correspondent_bank_account: "N°\_du compte bancaire"
+  correspondent_bank_name: 'Nom de la banque'
+  correspondent_bank_code: 'Code banque'
+  correspondent_bank_address: 'Rue, numéro, BOÎTE POSTALE'
+  correspondent_bank_other_info: 'Other info'
+  correspondent_bank_city: Ville
+  correspondent_bank_state: Département
+  correspondent_bank_postal_code: 'Code postal'
+  correspondent_bank_country: Pays

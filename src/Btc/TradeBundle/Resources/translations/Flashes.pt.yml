@@ -1,0 +1,3 @@
+warn:
+  orders:
+    verify: 'Sua conta precisa ser verificada para poder comprar/vender.'

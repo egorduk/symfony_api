@@ -1,0 +1,23 @@
+withdrawal:
+  amount:
+    blank: 'Digite a quantidade que deseja retirar'
+    greater_than_zero: 'Quantidade muito pequena para saque'
+    not_enough: 'Saldo insuficiente'
+    minimum: 'Quantidade mínima de saque é %amount% %currency%'
+    limit:
+      anti_money_laundering: 'Verifique os limites de saque permitidos na nossa política de prevenção de lavagem de dinheiro'
+      unverified_limit: 'Por favor, verifique sua conta para sacar mais fundos para esta Gateway'
+  account:
+    blank: 'Conta de destino não pode estar em branco'
+    invalid: 'Sua conta de destino não é válida'
+  insufficient:
+    balance: 'Saldo insuficiente'
+deposit:
+  amount:
+    limit: 'Por favor, verifique sua conta para depositar mais fundos desta Gateway'
+    blank: 'Digite a quantidade que deseja depositar'
+    greater_than_zero: 'Quantidade deve ser maior a 0'
+    minimum: 'Valor mínimo para depositar é %amount% %currency%'
+comment:
+  max:
+    limit: 'Tamanho máximo do comentário é 2000 caracteres'

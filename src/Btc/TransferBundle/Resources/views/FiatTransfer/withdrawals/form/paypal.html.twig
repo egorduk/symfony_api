@@ -1,0 +1,38 @@
+{% trans_default_domain 'Withdrawal' %}
+
+<div class="row row-sm">
+    <label class="control-label col-sm-5" for="btc_transfer_withdrawal_manual_foreignAccount">{{ bank.name }} Email:</label>
+    <div class="col-sm-7">
+        <p>
+            {{ form_widget(form.foreignAccount, { 'attr': {'class': 'form-control'} }) }}
+        </p>
+    </div>
+</div>
+<div class="row row-sm">
+    <label class="control-label col-sm-5" for="btc_transfer_withdrawal_manual_amount">{{ 'withdrawal.amount'|trans }}</label>
+    <div class="col-sm-4">
+        <p>
+            {{ form_widget(form.amount, { 'attr': {'class': 'form-control js-amount-input'} }) }}
+        </p>
+    </div>
+    <div class="col-sm-3">
+        <p>
+            {{ form_widget(form.currency, {'attr': {'class': 'form-control js-currency-selector'} }) }}
+        </p>
+    </div>
+</div>
+
+<div class="row row-sm">
+    <label class="control-label col-sm-5" for="fee">{{ 'withdrawal.fees'|trans }}</label>
+
+    <div class="col-sm-7">
+        <p>
+            <input id="fee" type="text" readonly="" value="0.00" class="form-control js-fee-input">
+        </p>
+    </div>
+</div>
+
+<hr/>
+
+{{ form_row(form.firstname) }}
+{{ form_row(form.lastname) }}

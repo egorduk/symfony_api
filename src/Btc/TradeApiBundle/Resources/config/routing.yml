@@ -1,0 +1,23 @@
+btc_trade_api_version:
+    type: rest
+    resource: '@BtcTradeApiBundle/Controller/VersionController.php'
+
+btc_trade_api_market:
+    type: rest
+    resource: '@BtcTradeApiBundle/Controller/MarketController.php'
+
+btc_trade_api_transaction:
+    type: rest
+    resource: '@BtcTradeApiBundle/Controller/TransactionController.php'
+
+btc_trade_api_order:
+    type: rest
+    resource: '@BtcTradeApiBundle/Controller/OrderController.php'
+
+btc_trade_api_account:
+    type: rest
+    resource: '@BtcTradeApiBundle/Controller/AccountController.php'
+
+btc_trade_api_secutiry:
+    type: rest
+    resource: '@BtcTradeApiBundle/Controller/SecureController.php'

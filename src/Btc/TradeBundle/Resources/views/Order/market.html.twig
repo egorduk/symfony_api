@@ -1,0 +1,67 @@
+{% extends 'BtcTradeBundle::buycell_layout.html.twig' %}
+{% trans_default_domain 'Trade' %}
+{% set page_title = 'title.market_order'|trans %}
+
+{% block container_left %}
+{% endblock %}
+
+
+{% block content %}
+
+    {% include('BtcAccountBundle:widgets:flash_messages.html.twig') %}
+
+    <div class="row row-md relative">
+        <div class="col-hg-9">
+            {% include 'BtcTradeBundle:Order/panels:currencies_top_line_panel.html.twig' %}
+            <div class="well well-blue">
+                {% include 'BtcTradeBundle:Order/panels:quick_buycell_panel.html.twig' %}
+            </div>
+            <div class="well well-blue">
+                {% include 'BtcTradeBundle:Order/panels:chart_panel.html.twig' %}
+            </div>
+        </div>
+        <div class="col-lg-8 col-xs-12 col-full-hg">
+            <div class="row row-md">
+                <div class="col-hg-6 col-lg-12">
+                    <div class="well well-blue">
+                        {% include 'BtcTradeBundle:Order/panels:price_tabs.html.twig' %}
+                    </div>
+                </div>
+                <div class="col-hg-6 col-lg-12">
+                    <div class="well well-blue">
+                        {% include 'BtcTradeBundle:Order/panels:orderbook_panel.html.twig' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-hg-3 col-xs-12 col-hg-absolute-right">
+            <div class="tile-vertical order-vertical">
+                <div class="tile">
+                    <div class="well well-blue">
+                        {% include 'BtcTradeBundle:Order/panels:open_orders_panel.html.twig' %}
+                    </div>
+                </div>
+                <div class="tile tile-free">
+                    <div class="recent-trade">
+                        <div class="well well-blue">
+                            {% include 'BtcTradeBundle:Order/panels:recent_trades_panel.html.twig' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        $(document).ready(function () {
+            plotOrderBookHomepage('{{ formatted|json_encode()|raw }}');
+        });
+    </script>
+
+{% endblock %}

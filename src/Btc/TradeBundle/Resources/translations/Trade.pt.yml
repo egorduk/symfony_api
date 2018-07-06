@@ -1,0 +1,174 @@
+form:
+  market:
+    amountToSpend: "Spend:"
+    sellAmount: "Sell:"
+    total: "Total"
+    subtotal: "Subtotal:"
+    fee: "Fee:"
+    receive: "Approx. receive:"
+    spend: "Approx. spend:"
+    exmarkets_fee: "Exmarkets fee:"
+    amount: "Quantity to buy:"
+    price: "At the price:"
+    order: "Order:"
+  limit:
+    buyAmount: "Amount to buy:"
+    sellAmount: "Amount to sell:"
+    price: "At the price:"
+    amount: "Quantity to buy:"
+    total: "Total:"
+    order: "Order:"
+    fee: "Fee:"
+deals:
+  top_buyers:
+    headline: 'Top 7 compradores'
+  top_sellers:
+    headline: 'Top 7 vendedores'
+  top_8_buyers: "Top 8 <strong>compradores</strong>"
+  top_8_sellers: "Top 8 <strong>vendedores</strong>"
+  top:
+    bid: 'Preço Comprador'
+    ask: 'Preço Vendedor'
+  column:
+    title:
+      price: Preço
+      amount: Quantidade
+      value: Valor
+  live_orderbook:
+    no_orders: 'Não há ordens no mercado'
+    no_sell_deals: 'Não há operações de venda no momento.'
+    no_buy_deals: 'Não há operação de compra no momento.'
+  already:
+    cancelled: 'A ordem já foi cancelada.'
+    completed: 'A ordem já foi executada.'
+flash:
+  success:
+    market_buy: 'Colocou %amount% para comprar %currency%'
+    market_sell: 'Criou uma operação para vender %amount%'
+    limit_buy: 'Criou uma operação para comprar %amount% por %unit_price% preço por unidade'
+    limit_sell: 'Criou uma operação para vender %amount% por %unit_price% preço por unidade'
+    buy_deal_cancel_scheduled: 'operação de compra com %amount_remaining% restante foi agendado para ser cancelado'
+    sell_deal_cancel_scheduled: 'Operação de venda com %amount_remaining% restante foi agendado para ser cancelado'
+  error:
+    buy_deal_cancel: 'Não foi possível encontrar a operação de compra em aberto pedida para cancelar.'
+    sell_deal_cancel: 'Não foi possível encontrar a operação de vender em aberto pedida para cancelar.'
+  danger:
+    instant_buy: 'Atualmente não pudemos executar a ordem imediata  já que não há vendas disponíveis'
+  warning:
+    verify_lieutenant: 'Para fazer uma ordem, você precisa <a href="%link%">verificar a sua conta</a>.'
+order:
+  action:
+    buy: Comprar
+    sell: Vender
+  limit:
+    headline: 'Ordem com limite'
+  instant:
+    headline: 'Ordem imediata'
+  buy_crypto:
+    BTC: 'Comprar bitcoins'
+    LTC: 'Comprar litecoins'
+  sell_crypto:
+    BTC: 'Vender bitcoins'
+    LTC: 'Vender litecoins'
+  wallet:
+    available: 'Disponível %currency%: %amount%'
+  open:
+    title: 'Ordens em Aberto'
+    buy: 'Ordens de compara em Aberto'
+    sell: 'Ordens de venda em Aberto'
+  table:
+    id: 'Ordem#'
+    date: Data/Hora
+    amount: Quantidade
+    price: Preço
+    value: Valor
+    deal_type: Tipo
+    actions: Ações
+    cancel: Cancelar
+    expand: 'Abrir para ver transações parciais para este pedido'
+    remaining_amount: 'Quantidade que falta para executar este pedido'
+    remaining_value: 'Valor da ordem que falta para executar'
+    unit_price: 'Preço da demanda por unidade'
+    type:
+      1: Limite
+      2: Mercado
+  status:
+    1: Executada
+    2: Cancelada
+    3: 'Cancelamento pendente'
+  book:
+    empty: 'Você não tem ordens em aberto.'
+  error:
+    buy: 'A compra: %id%, não foi encontrada ou não é do usuário: %user%.'
+    sell: 'A venda: %id%, não foi encontrada ou não é do usuário: %user%.'
+    cancel_buy: 'Cancelamento da compra falhou.'
+    cancel_sell: 'Cancelamento da venda falhou.'
+    instant_buy: 'Operação de compra imediata falhou.'
+    instant_sell: 'Operação de venda imediata falhou.'
+    limit_buy: 'Operação de compra com limite falhou.'
+    limit_sell: 'Operação de venda com limite falhou.'
+    wallet: 'Carteira ''%currency%'' não foi encontrada para usuário: %user%, tem que estar disponível'
+transaction:
+  status:
+    1: Executada
+  empty: 'Não há transações'
+  export_csv: 'Exportar CSV'
+title:
+  limit_order: 'Limitar Compra / Venda'
+  instant_order: 'Negóciação rápida'
+my_order_book: 'Ordens em Aberto'
+my_orders: 'Minhas Ordens'
+balance: 'Balance'
+
+panels:
+  quick_buy_sell:
+    title: 'Quick Buy/Sell'
+    price_recalculated: 'The price will be recalculated in'
+    sell_all_your: 'Sell all your'
+    with_all_your: 'with all your'
+    quick: 'Quick'
+  chart:
+    title: 'Classic Candlestick'
+  limit_price:
+    title: 'Limit price'
+  market_price:
+    title: 'Market price'
+    price: 'Buy at the optimal market price'
+    price_hint: System will automatically trade by market price (sorted from high price to low price) till all %currency_pair% sold out.
+  balance:
+      available: 'Available'
+      reserved: 'Reserved'
+      total: 'Total'
+  recent_trades:
+    title: 'Recent Trades'
+    columns:
+      date: 'Date/Time'
+      price: 'Price'
+      quantity: 'Quantity'
+  news:
+    title: 'News'
+    disclosures: 'Disclosures'
+    next: 'Next'
+  orderbook:
+    title: 'Order book'
+    full_book: 'Full Book'
+    total_available: 'Total %currency_code% available'
+    sell_orders: 'Sell orders'
+    buy_orders: 'Buy orders'
+    columns:
+      price: 'Price'
+      amount: 'Amount'
+
+currency_bar:
+  last_price: 'Last price'
+  daily_change: 'Daily change'
+  todays_open: 'Today’s open'
+  volume_24h: '24h volume'
+  days_range: 'Day’s range'
+  currency:
+    BTC: 'Bitcoin'
+    USD: 'US Dollar'
+    ETH: 'Ethereum'
+    EUR: 'Euro'
+    BNK: 'Bankera'
+    LTC: 'LiteCoin'

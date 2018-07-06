@@ -1,0 +1,18 @@
+btc_frontend_api_v1:
+    type: rest
+    prefix: /api/v%rest_api_version%
+    resource: "@BtcFrontendApiBundle/Resources/config/routing.yml"
+    options:
+        i18n: false
+
+btc_trade_api_v1:
+    type: rest
+    prefix: /api/trade/v%trade_api_version%
+    resource: "@BtcTradeApiBundle/Resources/config/routing.yml"
+    options:
+        i18n: false
+
+NelmioApiDocBundle:
+    type: rest
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix: /api/v1/doc

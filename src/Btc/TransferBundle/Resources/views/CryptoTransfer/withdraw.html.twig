@@ -1,0 +1,59 @@
+{% extends 'BtcAccountBundle::account_layout.html.twig' %}
+{% trans_default_domain 'Deposit' %}
+
+{% block content %}
+    {% set ccode = bank.slug|upper %}
+    <div class="page-header">
+        <h1>{{ 'withdrawal.coin.title'|trans({'%currencyCode%': ccode}) }}</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            {{ include("BtcAccountBundle:widgets:flash_messages.html.twig") }}
+            <p>{{ 'withdrawal.coin.please_select'|trans|raw }}</p>
+            <div class="row row-sm">
+                <div class="col-sm-12">
+                    <p>
+                      <select class="form-control js-currency-selector">
+                          {% for b in banks %}
+                              {% set location = path("btc_transfer_virtual_withdrawal", {"bank": b.slug}) %}
+                              <option data-location="{{ location }}" {% if bank == b %} selected {% endif %} value="">
+                                  {{ b.slug|upper }}
+                              </option>
+                          {% endfor %}
+                      </select>
+                    </p>
+                </div>
+            </div>
+
+            {% set limits = model.paymentLimits.balances[ccode] %}
+            <div class="js-withdrawals">
+              <p>{{ 'withdrawal.available_balance'|trans({}, "Withdrawal") }} <strong>{{ limits.available|price(ccode) }}</strong></p>
+              {% if not limits.unlimited %}
+                <p>{{ 'withdrawal.limit'|trans({}, "Withdrawal") }} <strong>{{ limits.allowed|price(ccode) }}</strong></p>
+              {% endif %}
+            </div>
+
+            <hr/>
+            {{ include('BtcTransferBundle:CryptoTransfer/partial:withdraw_form.html.twig', {'currencyCode': ccode}) }}
+        </div>
+        <div class="col-sm-6">
+            <div class="well well-dark">
+                <h4 class="well-name">{{ 'headers.your_limits'|trans({}, "Withdrawal") }}</h4>
+              {% include "BtcTransferBundle::payment_limits.html.twig" %}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <h4 class="well-name">Important note</h4>
+            <p>{{ 'withdrawal.note'|trans }}</p>
+        </div>
+    </div>
+    {% include "BtcTransferBundle:FiatTransfer:pending_withdrawals.html.twig" %}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $('.js-currency-selector').change(function() {
+            window.location.href = $(this).find('option:selected').data('location');
+        });
+    </script>
+{% endblock %}

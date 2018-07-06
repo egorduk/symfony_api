@@ -1,0 +1,174 @@
+form:
+  market:
+    amountToSpend: "Spend:"
+    sellAmount: "Sell:"
+    total: "Total"
+    subtotal: "Subtotal:"
+    fee: "Fee:"
+    receive: "Approx. receive:"
+    spend: "Approx. spend:"
+    exmarkets_fee: "Exmarkets fee:"
+    amount: "Quantity to buy:"
+    price: "At the price:"
+    order: "Order:"
+  limit:
+    buyAmount: "Amount to buy:"
+    sellAmount: "Amount to sell:"
+    price: "At the price:"
+    amount: "Quantity to buy:"
+    total: "Total:"
+    order: "Order:"
+    fee: "Fee:"
+deals:
+  top_buyers:
+    headline: 'Top 7 des acheteurs'
+  top_sellers:
+    headline: 'Top 7 des vendeurs'
+  top_8_buyers: "Top 8 <strong>des acheteurs</strong>"
+  top_8_sellers: "Top 8 <strong>des vendeurs</strong>"
+  top:
+    bid: 'PRIX D’ACHAT'
+    ask: 'PRIX DE VENTE'
+  column:
+    title:
+      price: Cours
+      amount: Montant
+      value: Valeur
+  live_orderbook:
+    no_orders: ','
+    no_sell_deals: ','
+    no_buy_deals: ','
+  already:
+    cancelled: ','
+    completed: ','
+flash:
+  success:
+    market_buy: ','
+    market_sell: ','
+    limit_buy: ','
+    limit_sell: ','
+    buy_deal_cancel_scheduled: ','
+    sell_deal_cancel_scheduled: ','
+  error:
+    buy_deal_cancel: ','
+    sell_deal_cancel: ','
+  danger:
+    instant_buy: ','
+  warning:
+    verify_lieutenant: 'To place orders, you need to <a href="%link%">verify your account</a>.'
+order:
+  action:
+    buy: Acheter
+    sell: Vendre
+  limit:
+    headline: 'Ordre limite'
+  instant:
+    headline: 'Ordre instantané'
+  buy_crypto:
+    BTC: ','
+    LTC: 'ACHETER DES LITECOINS'
+  sell_crypto:
+    BTC: ','
+    LTC: 'VENDRE DES LITECOINS'
+  wallet:
+    available: ','
+  open:
+    title: 'Ordres ouverts'
+    buy: 'Ouvrir des transactions d’achat'
+    sell: 'Ouvrir des transactions de vente'
+  table:
+    id: 'N° d’ordre'
+    date: Date/Heure
+    amount: Montant
+    price: Cours
+    value: Valeur
+    deal_type: Type
+    actions: Actions
+    cancel: ','
+    expand: ','
+    remaining_amount: ','
+    remaining_value: ','
+    unit_price: ','
+    type:
+      1: ','
+      2: ','
+  status:
+    1: Terminé
+    2: Annulé
+    3: ','
+  book:
+    empty: 'Vous n’avez aucun ordre ouvert.'
+  error:
+    buy: 'The buy deal: %id%, was not found or does not belong to user: %user%.'
+    sell: 'The sell deal: %id%, was not found or does not belong to user: %user%.'
+    cancel_buy: ','
+    cancel_sell: ','
+    instant_buy: ','
+    instant_sell: ','
+    limit_buy: ','
+    limit_sell: ','
+    wallet: 'Wallet ''%currency%'' was not found for user: %user%, it must be available'
+transaction:
+  status:
+    1: Terminé
+  empty: 'Il n’y a aucune transaction.'
+  export_csv: 'EXPORTER AU FORMAT CSV'
+title:
+  limit_order: 'Achat/vente limités'
+  instant_order: 'Échanges rapides'
+my_order_book: 'Ordres ouverts'
+my_orders: 'MES ORDRES'
+balance: 'Balance'
+
+panels:
+  quick_buy_sell:
+    title: 'Quick Buy/Sell'
+    price_recalculated: 'The price will be recalculated in'
+    sell_all_your: 'Sell all your'
+    with_all_your: 'with all your'
+    quick: 'Quick'
+  chart:
+    title: 'Classic Candlestick'
+  limit_price:
+    title: 'Limit price'
+  market_price:
+    title: 'Market price'
+    price: 'Buy at the optimal market price'
+    price_hint: System will automatically trade by market price (sorted from high price to low price) till all %currency_pair% sold out.
+  balance:
+      available: 'Available'
+      reserved: 'Reserved'
+      total: 'Total'
+  recent_trades:
+    title: 'Recent Trades'
+    columns:
+      date: 'Date/Time'
+      price: 'Price'
+      quantity: 'Quantity'
+  news:
+    title: 'News'
+    disclosures: 'Disclosures'
+    next: 'Next'
+  orderbook:
+    title: 'Order book'
+    full_book: 'Full Book'
+    total_available: 'Total %currency_code% available'
+    sell_orders: 'Sell orders'
+    buy_orders: 'Buy orders'
+    columns:
+      price: 'Price'
+      amount: 'Amount'
+
+currency_bar:
+  last_price: 'Last price'
+  daily_change: 'Daily change'
+  todays_open: 'Today’s open'
+  volume_24h: '24h volume'
+  days_range: 'Day’s range'
+  currency:
+    BTC: 'Bitcoin'
+    USD: 'US Dollar'
+    ETH: 'Ethereum'
+    EUR: 'Euro'
+    BNK: 'Bankera'
+    LTC: 'LiteCoin'

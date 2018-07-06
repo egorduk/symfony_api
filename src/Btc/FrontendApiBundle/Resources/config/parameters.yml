@@ -1,0 +1,24 @@
+parameters:
+    user_preference_entity: Btc\CoreBundle\Entity\UserPreference
+    bank_entity: Btc\CoreBundle\Entity\Bank
+    country_entity: Btc\CoreBundle\Entity\Country
+    currency_entity: Btc\CoreBundle\Entity\Currency
+    market_entity: Btc\CoreBundle\Entity\Market
+    news_entity: Btc\CoreBundle\Entity\Article
+    user_fee_set_entity: Btc\CoreBundle\Entity\UserFeeSet
+    user_order_entity: Btc\CoreBundle\Entity\Order
+    user_entity: Btc\CoreBundle\Entity\User
+    wallet_entity: Btc\CoreBundle\Entity\Wallet
+    wallet_operation_entity: Btc\CoreBundle\Entity\WalletOperation
+    deposit_address_entity: Btc\CoreBundle\Entity\DepositAddress
+    settings_entity: Btc\CoreBundle\Entity\Settings
+    phone_verification_entity: Btc\CoreBundle\Entity\PhoneVerification
+    email_template_entity: Btc\CoreBundle\Entity\EmailTemplate
+    user_activity_entity: Btc\CoreBundle\Entity\Activity
+    transaction_entity: Btc\CoreBundle\Entity\Transaction
+    deposit_entity: Btc\CoreBundle\Entity\Deposit\Deposit
+    withdraw_entity: Btc\CoreBundle\Entity\Withdraw\Withdraw
+    page_entity: Btc\CoreBundle\Entity\Page
+    qr_code.provider: EXMARKETS
+    coin_submission_entity: Btc\FrontendApiBundle\Entity\CoinSubmit
+    voucher_entity: Btc\CoreBundle\Entity\Voucher

@@ -1,0 +1,58 @@
+{% trans_default_domain 'Trade' %}
+{% form_theme buyForm 'BtcTradeBundle:Form:market.html.twig' %}
+<form action="{{ path('btc_trade_order_market') }}" {{ form_enctype(buyForm) }} method="POST">
+    {% if buyForm.vars["errors"] is not empty %}
+        <div class="alert alert-danger" style="display: inline-block;">
+            {{ form_errors(buyForm) }}
+        </div>
+    {% endif %}
+    {{ form_row(buyForm.amount, {suffix: base_currency().code, attr: {
+        "data-spend": "",
+        "data-in-type": "amount"
+    }}) }}
+
+    <div class="form-group">
+        <div class="control-label">{{ 'form.market.price'|trans }}</div>
+        <div class="box-control">
+            <input type="text" data-in-type="price" class="form-control" value="{{ 'panels.market_price.price'|trans }}" disabled>
+            <div class="box-icon right">
+                <a class="btn btn-question" data-toggle="popover" data-placement="right"
+                   data-content="{{ 'panels.market_price.price_hint'|trans({'%currency_pair%': currency_pair()}) }}">
+                    <i class="icon icon-question icon-middle"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {{ form_rest(buyForm) }}
+
+    <div class="form-group">
+        <div class="control-label">{{ 'form.market.total'|trans }}</div>
+
+        <div class="box-control">
+            <div class="input-group">
+                <input type="text" data-in-type="total" class="form-control" value="0.00">
+                <span class="input-group-addon">{{ quote_currency().code }}</span>
+            </div>
+        </div>
+
+        <div class="js-order-assumptions order-total">
+            <div class="order-total-line">
+                <p class="js-total-order pull-right"><span class="js-value">{{ '0.00'|fmt_price }}</span></p>
+                <label>{{ 'form.market.order'|trans }}</label>
+            </div>
+            <div class="order-total-line">
+                <p class="js-fee pull-right"><span class="js-value">{{ buyFees.percent }}</span>%</p>
+                <label>{{ 'form.market.fee'|trans }}</label>
+            </div>
+            <div class="order-total-line total">
+                <p class="js-total pull-right"><span class="js-value">{{ '0.00'|fmt_price }}</span></p>
+                <label class="white">{{ 'form.market.total'|trans }}:</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-btn">
+        <button class="btn btn-lg btn-block btn-green">{{ ("order.buy_crypto." ~ base_currency().code)|trans }}</button>
+    </div>
+</form>

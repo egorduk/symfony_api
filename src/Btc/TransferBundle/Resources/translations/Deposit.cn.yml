@@ -1,0 +1,64 @@
+deposit:
+  egopay:
+    title: '通过 EGOPAY 存款'
+  bitcoin:
+    title: 'Deposit your Bitcoins'
+    your_address: 将币种发送到该地址
+    qrcode_address: 地址二维码
+  submit: 存款
+  please_select: 请为货币存款选择支付方式：
+  amount: 存款数额：
+  maximum_amount: 最大存款数额自：
+  fees: 存款费：
+  astropay:
+    usd_amount: 美元数额：
+    country: 国家/地区：
+  crypto:
+    offline: 'Crypto currency deposit is unavailable'
+    offline_desc: 'Crypto currency deposit is unavailable. Sorry for the inconvienence.'
+  coin:
+    title: 使用加密货币存款
+    your_address: '<strong>将币种</strong>发送到该地址'
+    qrcode_address: 地址二维码
+    minimum: '%currencyCode% 特币最小存款：'
+    please_select: 请为货币存款选择支付选项：
+    alert: '比特币网络可能需要长达<strong>1-2 小时</strong>来确认交易。'
+  token:
+    title: 'Deposit your tokens'
+    your_address: <strong>Send your tokens</strong> to this address
+    alert: 'It may take up to <strong>1-2 hours</strong> for the blockchain network to confirm the transaction.'
+
+  title: '通过 %bank_name% 存款'
+currency:
+  ltc:
+    fullname: litecoin
+  btc:
+    fullname: bitcoin
+withdrawal:
+  coin:
+    title: '取款 %currencyCode%'
+    your_address: 'Your %currencyCode% wallet address'
+    please_select: 请为取款<strong>选择支付</strong>选项：
+  important_note: 重要提示
+  note: '处理大额取款最多可能需要 24 小时'
+  flash:
+    success: 'Withdrawal request is in progress.'
+    success_amount: 'Withdrawal request for %amount% placed'
+  current_balance: 当前可提取的结余是
+  maximum: 最大取款数额：
+  address: 地址：
+  amount: 取款数额：
+action:
+  withdraw: '取款 %currencyCode%'
+coin:
+  request_new_address: 请求新地址
+  deposit_addresses: '%currencyCode% 特币存款地址'
+  table:
+    date: 日期
+    address: 地址
+wire:
+  first_name: 名
+  last_name: 姓
+  company: 公司名称
+  amount: 数额
+  comment: 评论（可选）

@@ -1,0 +1,80 @@
+{% extends 'BtcTransferBundle::layout.html.twig' %}
+{% trans_default_domain 'Deposit' %}
+{% set page_title = currency.isToken() ? 'deposit.token.title'|trans : 'deposit.coin.title'|trans %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-7">
+            <div class="page-header">
+                <h1>{{ page_title }} </h1>
+            </div>
+            {{ include("BtcAccountBundle:widgets:flash_messages.html.twig") }}
+            <p>{{ 'deposit.coin.please_select'|trans|raw }}</p>
+            <form action="">
+                <div class="row row-sm">
+                    <div class="col-sm-12">
+                        <p>
+                          <select class="form-control js-currency-selector">
+                              {% for c in currencies %}
+                                  {% set location = path("btc_transfer_virtual_deposit_crypto", {"currency": c.code|lower}) %}
+                                  <option data-location="{{ location }}" {% if c == currency %} selected {% endif %} value="{{ c.id }}">
+                                      {{ c.code }}
+                                  </option>
+                              {% endfor %}
+                          </select>
+                        </p>
+                    </div>
+                </div>
+            <h4>
+                {{ currency.isToken() ? 'deposit.token.your_address'|trans|raw : 'deposit.coin.your_address'|trans|raw }}
+            </h4>
+                <div class="form-group">
+                    <p>
+                        <input type="text" class="form-control" name="deposit_address" value="{{ address }}"/>
+                    </p>
+                    <p class="js-min-amount">
+                        {{ 'deposit.coin.minimum'|trans({'%currencyCode%': currency.code|upper}) }}
+                        {% if currency.isToken() %}
+                            <strong>1</strong>
+                        {% else %}
+                            <strong>0.01</strong>
+                        {% endif %}
+                    </p>
+                </div>
+            </form>
+            <div class="alert alert-sm alert-warning">
+                {{ 'deposit.coin.alert'|trans|raw }}
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="page-header">
+                <h4>{{ 'deposit.coin.qrcode_address'|trans }}</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 text-center">
+                    <img style="width:100%;" id="address_qr" src="https://chart.googleapis.com/chart?chs=230x230&amp;chld=M%7C0&amp;cht=qr&amp;chl={{ ('currency.' ~ currency.code|lower ~ '.fullname')|trans }}:{{ address }}" alt="{{ address }}">
+                    <br/>
+                    <a href="{{ path('btc_transfer_virtual_address_new', {'currency' : currency.code}) }}" class="btn btn-orange">{{ 'coin.request_new_address'|trans }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <hr/>
+            <h4><strong>{{ 'coin.deposit_addresses'|trans({'%currencyCode%': currency.code|upper}) }}</strong></h4>
+            {{ include('BtcTransferBundle:CryptoTransfer/partial:address_listing_table.html.twig', {'addresses': addresses}) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $('.js-currency-selector').change(function () {
+            window.location.href = $(this).find('option:selected').data('location');
+        });
+    </script>
+{% endblock %}
+

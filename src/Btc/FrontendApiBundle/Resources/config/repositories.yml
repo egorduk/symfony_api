@@ -1,0 +1,127 @@
+services:
+    rest.repository.user_preference:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%user_preference_entity%']
+
+    rest.repository.wallet:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%wallet_entity%']
+
+    rest.repository.email_template:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%email_template_entity%']
+
+    rest.repository.phone_verification:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%phone_verification_entity%']
+
+    rest.repository.settings:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%settings_entity%']
+
+    rest.repository.user_business_info:
+        class: Btc\FrontendApiBundle\Repository\UserBusinessInfoRepository
+        arguments: ['@em']
+
+    rest.repository.user_personal_info:
+        class: Btc\FrontendApiBundle\Repository\UserPersonalInfoRepository
+        arguments: ['@em']
+
+    rest.repository.verification:
+        class: Btc\FrontendApiBundle\Repository\VerificationRepository
+        arguments: ['@em']
+
+    rest.repository.deposit_address:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%deposit_address_entity%']
+
+    rest.repository.user:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%user_entity%']
+
+    rest.repository.country:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%country_entity%']
+
+    rest.repository.currency:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%currency_entity%']
+
+    rest.repository.activity:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%user_activity_entity%']
+
+    rest.repository.market:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%market_entity%']
+
+    rest.repository.btc_address:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%deposit_address_entity%']
+
+    rest.repository.ltc_address:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%deposit_address_entity%']
+
+    rest.repository.eth_address:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%deposit_address_entity%']
+
+    rest.repository.wallet_operation:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%wallet_operation_entity%']
+
+    rest.repository.transaction:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%transaction_entity%']
+
+    rest.repository.bank:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%bank_entity%']
+
+    rest.repository.deposit:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%deposit_entity%']
+
+    rest.repository.withdraw:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%withdraw_entity%']
+
+    rest.repository.order:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%user_order_entity%']
+
+    rest.repository.page:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%page_entity%']
+
+    rest.repository.voucher:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['%voucher_entity%']
+
+    rest.repository.coin_submission:
+        class: Btc\FrontendApiBundle\Repository\CoinSubmissionRepository
+        arguments: ['@em']
+

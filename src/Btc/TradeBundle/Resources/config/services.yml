@@ -1,0 +1,8 @@
+services:
+  btc_trade.service.payment:
+    class: Btc\Component\Market\Service\Payment
+    arguments: ['@db', '@nsq']
+
+  btc_trade.service.payment_persister:
+    class: Btc\Component\Market\Service\PaymentPersister
+    arguments: ['@db']

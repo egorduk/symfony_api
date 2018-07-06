@@ -1,0 +1,16 @@
+warn:
+  deposit:
+    verify: "Your account needs to be verified in order to make deposits."
+  withdraw:
+    verify: "Your account needs to be verified in order to make withdrawals."
+
+new_address:
+  success: "Your new address for deposits is %address%"
+  too_early: 'You can only request new address once every 48h.'
+
+access_denied:
+  wire: "In order to make wire transfers, you need to verify your account."
+
+withdrawal:
+  insufficient:
+    balance: "Insufficient wallet balance"

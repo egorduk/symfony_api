@@ -1,0 +1,38 @@
+{% trans_default_domain 'Trade' %}
+
+<div class="row row-lg">
+    <div class="col-sm-6 js-order js-order-buy border-right-dashed" data-fee="{{ buyFees.percent }}">
+        <div class="spend-block">
+
+            {% include 'BtcTradeBundle:widgets:order_info_balance.html.twig' with {
+                balance: {
+                    available: walletBalance.quote,
+                    reserved: '0.00',
+                    total: '0.00'
+                },
+                order_action: 'buy'
+                }
+            %}
+
+            {% include 'BtcTradeBundle:Order/forms:limit_buy_form.html.twig' with {'buyForm': buyFormLimit, 'buyFees': buyFees} %}
+
+        </div>
+    </div>
+    <div class="col-sm-6 js-order js-order-sell" data-fee="{{ sellFees.percent }}">
+        <div class="spend-block">
+
+            {% include 'BtcTradeBundle:widgets:order_info_balance.html.twig' with {
+                balance: {
+                    available: walletBalance.base,
+                    reserved: '0.00',
+                    total: '0.00'
+                },
+                order_action: 'sell'
+            }
+            %}
+
+            {% include 'BtcTradeBundle:Order/forms:limit_sell_form.html.twig' with {'sellForm': sellFormLimit, 'buyFees': sellFees} %}
+
+        </div>
+    </div>
+</div>

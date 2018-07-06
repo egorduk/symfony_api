@@ -1,0 +1,41 @@
+{% trans_default_domain 'Trade' %}
+<div class="panel">
+    <div class="panel-heading">
+        <div class="pull-right">
+            <a class="btn btn-collapsed" role="button" data-toggle="collapse"  href="#collapseNews" aria-expanded="true" aria-controls="collapseNews">
+                <i class="icon icon-collapse"></i>
+            </a>
+        </div>
+        <div class="panel-title">
+            {{ 'panels.news.title'|trans }}
+        </div>
+    </div>
+    <div id="collapseNews" class="panel-collapse collapse in">
+        <div class="panel-body">
+            <div class="news-preview">
+                <a class="link">After reaching the all-time high of $ 2,000 at end of May 2017, Bitcoin now passed the next milestone.</a>
+                <div class="info">Bitcoincharts 11:32AM</div>
+            </div>
+            <div class="news-preview">
+                <a class="link">Bitcoin Is on Track for Its Biggest Weekly Decline Since March</a>
+                <div class="info">Bloomberg 11:32AM</div>
+            </div>
+            <div class="news-preview">
+                <a class="link">After reaching the all-time high of $ 2,000 at end of May 2017, Bitcoin now passed the next milestone.</a>
+                <div class="info">Bitcoincharts 11:32AM</div>
+            </div>
+            <div class="box-action">
+                <div class="pull-right">
+                    <ul class="nav nav-pagination">
+                        <li class="active"><a href="/">1</a></li>
+                        <li><a href="/">2</a></li>
+                        <li><a href="/">3</a></li>
+                        <li><a href="/">4</a></li>
+                        <li><a href="/">{{ 'panels.news.next'|trans }}</a></li>
+                    </ul>
+                </div>
+                <a class="link link-blue">{{ 'panels.news.disclosures'|trans }}</a>
+            </div>
+        </div>
+    </div>
+</div>

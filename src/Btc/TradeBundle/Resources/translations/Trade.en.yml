@@ -1,0 +1,195 @@
+form:
+  market:
+    amountToSpend: "Spend:"
+    sellAmount: "Sell:"
+    total: "Total"
+    subtotal: "Subtotal:"
+    fee: "Fee:"
+    receive: "Approx. receive:"
+    spend: "Approx. spend:"
+    exmarkets_fee: "Exmarkets fee:"
+    amount: "Quantity to buy:"
+    price: "At the price:"
+    order: "Order:"
+  limit:
+    buyAmount: "Amount to buy:"
+    sellAmount: "Amount to sell:"
+    price: "At the price:"
+    amount: "Quantity to buy:"
+    total: "Total:"
+    order: "Order:"
+    fee: "Fee:"
+
+deals:
+  top_buyers:
+    headline: "Top 7 buyers"
+  top_sellers:
+    headline: "Top 7 sellers"
+  top_8_buyers: "Top 8 <strong>Buyers</strong>"
+  top_8_sellers: "Top 8 <strong>Sellers</strong>"
+  top:
+    bid: "Bid price"
+    ask: "Ask price"
+  column:
+    title:
+      price: "Price"
+      amount: "Amount"
+      value: "Value"
+  live_orderbook:
+    no_orders: "No Orders in the market"
+    no_sell_deals: "There are no sell deals at the moment."
+    no_buy_deals: "There are no buy deals at the moment."
+  already:
+    cancelled: "This order was already cancelled"
+    completed: "This order was already completed"
+
+flash:
+  success:
+    market_buy: "Placed an order to buy %amount%"
+    market_sell: "Placed an order to sell %amount%"
+    limit_buy: "Placed an order to buy %amount% at %unit_price% per unit"
+    limit_sell: "Placed an order to sell %amount% at %unit_price% per unit"
+    cancel_scheduled: "#%id% %side% order was scheduled to cancel"
+  error:
+    buy_deal_cancel: "Could not find an open buy deal requested to cancel."
+    sell_deal_cancel: "Could not find an open sell deal requested to cancel."
+  danger:
+    market_buy: 'Currently we could not place market order as there are no available sells'
+  warning:
+    verify_lieutenant: 'To place orders, you need to <a href="%link%">verify your account</a>.'
+
+order:
+  action:
+    buy: "Buy"
+    sell: "Sell"
+  limit:
+    headline: "Limit order"
+  market:
+    headline: "Market order"
+  buy_crypto:
+    BTC: "Buy bitcoins"
+    LTC: "Buy litecoins"
+    ETH: "Buy ETH"
+    BNK: "Buy BNK"
+  sell_crypto:
+    BTC: "Sell bitcoins"
+    LTC: "Sell litecoins"
+    ETH: "Sell ETH"
+    BNK: "Sell BNK"
+  wallet:
+    available: "Available %currency%: %amount%"
+  open:
+    title: "Open Orders"
+    buy: "Open buy deals"
+    sell: "Open sell deals"
+  table:
+    id: "Order#"
+    date: "Date/Time"
+    amount: "Amount"
+    price: "Price"
+    value: "Value"
+    deal_type: "Type"
+    deal_side: "Side"
+    actions: "Actions"
+    cancel: "Cancel"
+    expand: "Expand to view partial transactions for this order"
+    remaining_amount: "Remaining amount to fulfill order"
+    remaining_value: "Remaining order value to fulfill order"
+    unit_price: "Asked price per unit"
+    fee: "Fee"
+    type:
+      1: "Limit"
+      2: "Market"
+    side:
+      BUY: "BUY"
+      SELL: "SELL"
+  status:
+    1: "Open"
+    2: "Completed"
+    3: "Cancelled"
+    4: "Pending Cancel"
+  book:
+    empty: 'You have no open orders.'
+  error:
+    buy: "The buy deal: %id%, was not found or does not belong to user: %user%."
+    sell: "The sell deal: %id%, was not found or does not belong to user: %user%."
+    cancel_buy: "Cancel buy deal transaction has failed."
+    cancel_sell: "Cancel sell deal transaction has failed."
+    market_buy: "Market buy deal transaction has failed."
+    market_sell: "Market sell deal transaction has failed."
+    limit_buy: "Limit buy deal transaction has failed."
+    limit_sell: "Limit sell deal transaction has failed."
+    wallet: "Wallet '%currency%' was not found for user: %user%, it must be available"
+
+transaction:
+  status:
+    1: "Completed"
+  title: "Trade history"
+  returned: "Returned:"
+  spentFees: "Spent for fees:"
+  extra: "Received extra:"
+  completed: "Transactions completed"
+  remaining: "Remaining order value:"
+  export_csv: "Export csv"
+  empty: "There are no transactions"
+
+title:
+  limit_order: 'Limit order'
+  market_order: 'Market order'
+
+my_order_book: "Open Orders"
+my_orders: "My Orders"
+balance: 'Balance'
+
+panels:
+  quick_buy_sell:
+    title: 'Quick Buy/Sell'
+    price_recalculated: 'The price will be recalculated in'
+    sell_all_your: 'Sell all your'
+    with_all_your: 'with all your'
+    quick: 'Quick'
+  chart:
+    title: 'Classic Candlestick'
+  limit_price:
+    title: 'Limit price'
+  market_price:
+    title: 'Market price'
+    price: 'Buy at the optimal market price'
+    price_hint: System will automatically trade by market price (sorted from high price to low price) till all %currency_pair% sold out.
+  balance:
+    available: 'Available'
+    reserved: 'Reserved'
+    total: 'Total'
+  recent_trades:
+    title: 'Recent Trades'
+    columns:
+      date: 'Date/Time'
+      price: 'Price'
+      quantity: 'Quantity'
+  news:
+    title: 'News'
+    disclosures: 'Disclosures'
+    next: 'Next'
+  orderbook:
+    title: 'Order book'
+    full_book: 'Full Book'
+    total_available: 'Total %currency_code% available'
+    sell_orders: 'Sell orders'
+    buy_orders: 'Buy orders'
+    columns:
+      price: 'Price'
+      amount: 'Amount'
+
+currency_bar:
+  last_price: 'Last price'
+  daily_change: 'Daily change'
+  todays_open: 'Today’s open'
+  volume_24h: '24h volume'
+  days_range: 'Day’s range'
+  currency:
+    BTC: 'Bitcoin'
+    USD: 'US Dollar'
+    ETH: 'Ethereum'
+    EUR: 'Euro'
+    BNK: 'Bankera'
+    LTC: 'LiteCoin'

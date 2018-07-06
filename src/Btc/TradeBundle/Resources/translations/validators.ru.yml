@@ -1,0 +1,13 @@
+order:
+  empty:
+    market: 'We could not place instant order as the market is empty, place a limit order.'
+  insufficient:
+    balance: 'Not enough available balance'
+  min:
+    order_value: 'The lowest order value may be: %value% %currency%'
+  price:
+    blank: 'Price field cannot be blank.'
+    zero_or_negative: 'Price must be greater than 0.'
+  amount:
+    blank: 'An amount cannot be blank.'
+    zero_or_negative: 'Amount must be greater than 0.'

@@ -1,0 +1,11 @@
+warn:
+  deposit:
+    verify: 'Sua conta precisa ser verificada para fazer depósitos.'
+  withdraw:
+    verify: 'Sua conta precisa ser verificada para fazer saques.'
+new_address:
+  success: 'Seu novo endereço para depósitos é %address%'
+  too_early: 'Você só pode pedir um novo endereço uma vez cada 48h.'
+withdrawal:
+  insufficient:
+    balance: 'Saldo insuficiente na carteira'

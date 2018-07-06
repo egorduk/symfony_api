@@ -1,0 +1,129 @@
+{% trans_default_domain 'Trade' %}
+<div class="order-book">
+    <div class="order-table-heading">
+        <div class="panel-title">{{ 'panels.recent_trades.title'|trans }}</div>
+        <div class="heading-table">
+            <table class="table table-prices table-recent">
+                <thead>
+                <tr>
+                    <th>{{ 'panels.recent_trades.columns.date'|trans }}</th>
+                    <th>{{ 'panels.recent_trades.columns.price'|trans }}, {{ base_currency().code }}</th>
+                    <th>{{ 'panels.recent_trades.columns.quantity'|trans }}, {{ quote_currency().code }}</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div class="order-table-body">
+        <div class="scroll-table scrollbar-inner">
+            <table class="table table-prices table-recent">
+                <tbody>
+                <!--down - orange bg-->
+                <tr class="down" style="background-color: rgba(239, 103, 39, 0.0015)"><!--percent opacity = Quantity*0.5-->
+                    <td>2:20:23 AM</td>
+                    <td><span class="white">2,547.17</span></td>
+                    <td><span class="orange">0.00392436</span></td>
+                </tr>
+                <tr class="down" style="background-color: rgba(239, 103, 39, 0.25)"><!--percent opacity = Quantity*0.5-->
+                    <td>2:20:23 AM</td>
+                    <td><span class="white">2,547.17</span></td>
+                    <td><span class="orange">0.5</span></td>
+                </tr>
+                <tr class="down" style="background-color: rgba(239, 103, 39, 0.01)"><!--percent opacity = Quantity*0.5-->
+                    <td>2:20:23 AM</td>
+                    <td><span class="white">2,547.17</span></td>
+                    <td><span class="orange">0.02</span></td>
+                </tr>
+                <tr class="down" style="background-color: rgba(239, 103, 39, 0.015)"><!--percent opacity = Quantity*0.5-->
+                    <td>2:20:23 AM</td>
+                    <td><span class="white">2,547.17</span></td>
+                    <td><span class="orange">0.03</span></td>
+                </tr>
+                <tr class="down" style="background-color: rgba(239, 103, 39, 0.05)"><!--percent opacity = Quantity*0.5-->
+                    <td>2:20:23 AM</td>
+                    <td><span class="white">2,547.17</span></td>
+                    <td><span class="orange">0.104</span></td>
+                </tr>
+                <tr class="down" style="background-color: rgba(239, 103, 39, 0.1)"><!--percent opacity = Quantity*0.5-->
+                    <td>2:20:23 AM</td>
+                    <td><span class="white">2,547.17</span></td>
+                    <td><span class="orange">0.2</span></td>
+                </tr>
+                <!--up - green bg-->
+                <tr class="up" style="background-color: rgba(93, 192, 180, 0.015)"><!--percent opacity = Quantity*0.5-->
+                    <td>2:20:23 AM</td>
+                    <td><span class="white">2,547.17</span></td>
+                    <td><span class="green">0.03248994</span></td>
+                </tr>
+                <tr class="down" style="background-color: rgba(239, 103, 39, 0.015)"><!--percent opacity = Quantity*0.5-->
+                    <td>2:20:23 AM</td>
+                    <td><span class="white">2,547.17</span></td>
+                    <td><span class="orange">0.03</span></td>
+                </tr>
+                <tr class="up" style="background-color: rgba(93, 192, 180, 0.05)"><!--percent opacity = Quantity*0.5-->
+                    <td>2:20:23 AM</td>
+                    <td><span class="white">2,547.17</span></td>
+                    <td><span class="green">0.108</span></td>
+                </tr>
+                <tr class="up" style="background-color: rgba(93, 192, 180, 0.0015)"><!--percent opacity = Quantity*0.5-->
+                    <td>2:20:23 AM</td>
+                    <td><span class="white">2,547.17</span></td>
+                    <td><span class="green">0.003</span></td>
+                </tr>
+                <tr class="up" style="background-color: rgba(93, 192, 180, 0.4)"><!--percent opacity = Quantity*0.5-->
+                    <td>2:20:23 AM</td>
+                    <td><span class="white">2,547.17</span></td>
+                    <td><span class="green">0.8</span></td>
+                </tr>
+                <tr class="down" style="background-color: rgba(239, 103, 39, 0.0015)"><!--percent opacity = Quantity*0.5-->
+                    <td>2:20:23 AM</td>
+                    <td><span class="white">2,547.17</span></td>
+                    <td><span class="orange">0.00392436</span></td>
+                </tr>
+
+                <tr class="title">
+                    <td colspan="3"><span class="white">Jul 14 2017</span></td>
+                </tr>
+
+                <!--down - orange bg-->
+                <tr class="down" style="background-color: rgba(239, 103, 39, 0.0015)"><!--percent opacity = Quantity*0.5-->
+                    <td>2:20:23 AM</td>
+                    <td><span class="white">2,547.17</span></td>
+                    <td><span class="orange">0.00392436</span></td>
+                </tr>
+                <tr class="down" style="background-color: rgba(239, 103, 39, 0.25)"><!--percent opacity = Quantity*0.5-->
+                    <td>2:20:23 AM</td>
+                    <td><span class="white">2,547.17</span></td>
+                    <td><span class="orange">0.5</span></td>
+                </tr>
+                <tr class="down" style="background-color: rgba(239, 103, 39, 0.01)"><!--percent opacity = Quantity*0.5-->
+                    <td>2:20:23 AM</td>
+                    <td><span class="white">2,547.17</span></td>
+                    <td><span class="orange">0.02</span></td>
+                </tr>
+                <tr class="down" style="background-color: rgba(239, 103, 39, 0.015)"><!--percent opacity = Quantity*0.5-->
+                    <td>2:20:23 AM</td>
+                    <td><span class="white">2,547.17</span></td>
+                    <td><span class="orange">0.03</span></td>
+                </tr>
+                <tr class="down" style="background-color: rgba(239, 103, 39, 0.05)"><!--percent opacity = Quantity*0.5-->
+                    <td>2:20:23 AM</td>
+                    <td><span class="white">2,547.17</span></td>
+                    <td><span class="orange">0.104</span></td>
+                </tr>
+                <tr class="down" style="background-color: rgba(239, 103, 39, 0.1)"><!--percent opacity = Quantity*0.5-->
+                    <td>2:20:23 AM</td>
+                    <td><span class="white">2,547.17</span></td>
+                    <td><span class="orange">0.2</span></td>
+                </tr>
+                <!--up - green bg-->
+                <tr class="up" style="background-color: rgba(93, 192, 180, 0.015)"><!--percent opacity = Quantity*0.5-->
+                    <td>2:20:23 AM</td>
+                    <td><span class="white">2,547.17</span></td>
+                    <td><span class="green">0.03248994</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

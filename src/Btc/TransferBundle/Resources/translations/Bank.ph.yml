@@ -1,0 +1,12 @@
+payza:
+  description: 'Isang global online payment platform na nag-specialize sa pag-proseso ng e-commerce, corporate disbursements, at mga remittance para sa indibidwal at mga negosyo sa ibat’t ibang panig ng mundo.'
+  notice: 'Ang mga depositong ginawa gamit ang Payza ay maaaring umabot mula 12 hanggang 48 oras sa pag proseso.'
+egopay:
+  description: 'Isang pinagkakatiwalaang global e-payments processor na nag-ooffer ng mabilisang mga transaksyon para sa mga indibidwal at mga negosyo sa buong mundo.'
+okpay:
+  description: 'Isang P2P at B2C web based na systema sa pag bayad na nagbibigay sa mga users ng virtual account na nagbibigay-daan upang makapag-load, pakapag-send, makatanggap at makapag-withdraw ng pera pati na rin makabili online.'
+perfect_money:
+  description: 'Isang online payments processor na nag-ooffer sa mga user nito ng e-wallets, instant payments, at iba pa.'
+wire:
+  description: 'Select USD from currency selector for International Wire Transfer or EUR for SEPA Wire Transfer. <br /> Your wire transfer deposit will be credited in 1 - 3 business days.'
+important_notice: 'Importanteng paalala:'

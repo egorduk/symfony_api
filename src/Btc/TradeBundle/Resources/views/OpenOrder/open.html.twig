@@ -1,0 +1,44 @@
+{% extends '@BtcTrade/layout.html.twig' %}
+{% trans_default_domain 'Trade' %}
+{% set page_title = 'order.open.title'|trans %}
+{% block content %}
+
+    <div class="page-header">
+        <div class="row row-sm">
+            <div class="col-sm-6">
+                <h1>{{ page_title }}</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="row row-sm filter-toolbar">
+        <div class="col-sm-3">
+            {{ orders|page_filter('limit')}}
+        </div>
+    </div>
+    <!-- END FILTERS -->
+
+    {{ include("BtcAccountBundle:widgets:flash_messages.html.twig") }}
+
+    {% include "@BtcTrade/widgets/open_orders_table.html.twig" with {'orders': orders, 'forms': cancelOrderForms} %}
+
+    <!-- TRANSACTION PAGE NAVIGATION -->
+    {{ orders|page_navigation }}
+    <!-- END TRANSACTION PAGE NAVIGATION -->
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.js-expand-deal').on('click', function () {
+      var target = '.js-expand-deal-' + $(this).data('target');
+      $(this).parent().parent().toggleClass('expanded-order-row');
+      $(target).toggle();
+      $(this).find("i").toggleClass('glyphicon-plus glyphicon-minus');
+    });
+});
+</script>
+{% endblock %}
+

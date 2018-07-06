@@ -1,0 +1,48 @@
+{% trans_default_domain 'Trade' %}
+
+<div class="well quick-trades js-orders-widget" data-type="limit">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="h3 quick-trade-title">{{ page_title }}</div>
+        </div>
+        <div class="col-sm-8">
+            {{ render(controller('BtcAccountBundle:Default:marketSwitcher')) }}
+        </div>
+    </div>
+    <hr>
+    <div class="well well-blue">
+        <div class="row row-lg">
+            <div class="col-md-6 js-order-buy border-right-dashed" data-fee="{{ buyFees.percent }}">
+                <div class="order-name">
+                    <div class="h4"><span class="circle-border green"></span> {{ 'order.action.buy'|trans }}</div>
+                </div>
+                {% include 'BtcTradeBundle:Order/forms:limit_buy_form.html.twig' with {'buyForm': buyForm, 'buyFees': buyFees} %}
+            </div>
+            <div class="col-sm-6 js-order-sell" data-fee="{{ sellFees.percent }}">
+                <div class="order-name">
+                    <div class="h4"><span class="circle-border orange"></span> {{ 'order.action.sell'|trans }}</div>
+                </div>
+                {% include 'BtcTradeBundle:Order/forms:limit_sell_form.html.twig' with {'sellForm': sellForm, 'buyFees': buyFees} %}
+            </div>
+        </div>
+    </div>
+    <div class="well well-blue">
+        <div class="order-book">
+            <div class="row row-lg">
+                <div class="col-sm-6 js-order-buy" data-fee="{{ buyFees.percent }}">
+                    <h4><span class="circle-border green"></span> {{ 'deals.top_8_buyers'|trans|raw }}</h4>
+                    <div class="js-liveorders" data-type="bid" data-crypto-sign="{{ base_currency().sign }}" data-currency-sign="{{ quote_currency().sign }}">
+                        {% include 'BtcTradeBundle:widgets:deals.html.twig' with {'deals': topBuyers} %}
+                    </div>
+                </div>
+                <div class="col-sm-6 js-order-sell" data-fee="{{ sellFees.percent }}">
+                    <h4><span class="circle-border orange"></span> {{ 'deals.top_8_sellers'|trans|raw }}</h4>
+                    <div class="js-liveorders" data-type="ask" data-crypto-sign="{{ base_currency().code }}" data-currency-sign="{{ quote_currency().sign }}">
+                        {% include 'BtcTradeBundle:widgets:deals.html.twig' with {'deals': topSellers} %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,21 @@
+{% trans_default_domain 'Trade' %}
+<div class="panel">
+    <div class="panel-heading">
+        <div class="pull-right">
+            {#<a class="btn">
+                <i class="icon icon-download"></i>
+            </a>#}
+            {#<a class="btn btn-collapsed" role="button" data-toggle="collapse"  href="#collapseChart" aria-expanded="true" aria-controls="collapseChart">
+                <i class="icon icon-collapse"></i>
+            </a>#}
+        </div>
+        <div class="panel-title">{{ 'panels.chart.title'|trans }}</div>
+    </div>
+    <div id="collapseChart" class="panel-collapse collapse in">
+        <div class="panel-body">
+            <div class="panel-chart">
+                {% include 'BtcFrontendBundle:widgets:trader_chart_cex.html.twig' %}
+            </div>
+        </div>
+    </div>
+</div>

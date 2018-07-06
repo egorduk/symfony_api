@@ -1,0 +1,18 @@
+btc_transfer_wire_transfer:
+  resource: "@BtcTransferBundle/Controller/WireTransferController.php"
+  type: annotation
+  prefix: /account/wire-transfer
+
+btc_transfer_fiat:
+  resource: "@BtcTransferBundle/Controller/FiatTransferController.php"
+  type: annotation
+  prefix: /account
+
+btc_transfer_crypto:
+  resource: "@BtcTransferBundle/Controller/CryptoTransferController.php"
+  type: annotation
+  prefix: /account
+
+btc_transfer_callback:
+  resource: "@BtcTransferBundle/Controller/IpnController.php"
+  type: annotation

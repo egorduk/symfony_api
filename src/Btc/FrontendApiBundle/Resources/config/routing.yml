@@ -1,0 +1,59 @@
+btc_frontend_api_banks:
+    type: rest
+    resource: "@BtcFrontendApiBundle/Controller/BankController.php"
+
+btc_frontend_api_countries:
+    type: rest
+    resource: "@BtcFrontendApiBundle/Controller/CountryController.php"
+
+btc_frontend_api_currencies:
+    type: rest
+    resource: "@BtcFrontendApiBundle/Controller/CurrencyController.php"
+
+btc_frontend_api_news:
+    type: rest
+    resource: "@BtcFrontendApiBundle/Controller/NewsController.php"
+
+btc_frontend_api_fee_sets:
+    type: rest
+    resource: "@BtcFrontendApiBundle/Controller/FeeSetController.php"
+
+btc_frontend_api_markets:
+    type: rest
+    resource: "@BtcFrontendApiBundle/Controller/MarketController.php"
+
+btc_frontend_api_orderbooks:
+    type: rest
+    resource: "@BtcFrontendApiBundle/Controller/OrderBookController.php"
+
+btc_frontend_api_orders:
+    type: rest
+    resource: "@BtcFrontendApiBundle/Controller/UserOrderController.php"
+
+btc_frontend_api_users:
+    type: rest
+    resource: "@BtcFrontendApiBundle/Controller/UserController.php"
+
+btc_frontend_api_general:
+    type: rest
+    resource: "@BtcFrontendApiBundle/Controller/GeneralController.php"
+
+btc_frontend_api_deals:
+    type: rest
+    resource: "@BtcFrontendApiBundle/Controller/DealController.php"
+
+btc_frontend_api_export:
+    type: rest
+    resource: "@BtcFrontendApiBundle/Controller/ExportController.php"
+
+btc_frontend_api_page:
+    type: rest
+    resource: "@BtcFrontendApiBundle/Controller/PageController.php"
+
+btc_frontend_api_coins:
+    type: rest
+    resource: "@BtcFrontendApiBundle/Controller/CoinsController.php"
+
+btc_frontend_api_vouchers:
+    type: rest
+    resource: "@BtcFrontendApiBundle/Controller/VoucherController.php"

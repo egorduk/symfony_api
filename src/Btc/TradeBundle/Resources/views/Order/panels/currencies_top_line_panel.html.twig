@@ -1,0 +1,40 @@
+<div class="currencies-line">
+    <div class="form-group">
+        {% include 'BtcFrontendBundle:widgets:currency_box.html.twig' %}
+    </div>
+    <div class="form-group">
+        <div class="control-label">Last price</div>
+        <div class="label-price cur-value">
+            <span data-last-price="">0.00</span> <span class="cur">{{ quote_currency().code }}</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="control-label">Daily change
+            <span class="green percent">
+                <i class="icon icon-daily-change-percent icon-arrow-up"></i>
+                <span data-daily-change-percent="">0</span>%
+            </span>
+        </div>
+        <div class="label-price cur-value">
+            <span data-daily-change="">0.00</span> <span class="cur">{{ quote_currency().code }}</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="control-label">Today’s open</div>
+        <div class="label-price cur-value">
+            <span data-open="">0.00</span> <span class="cur">{{ quote_currency().code }}</span>
+        </div>
+    </div>
+    <div class="form-group hide-mobile">
+        <div class="control-label">24h volume</div>
+        <div class="label-price cur-value">
+            <span data-volume24="">0.00</span> <span class="cur">{{ quote_currency().code }}</span>
+        </div>
+    </div>
+    <div class="form-group hide-mobile">
+        <div class="control-label">Day’s range</div>
+        <div class="label-price cur-value">
+            <span data-range="">0.00</span> <span class="cur">{{ quote_currency().code }}</span>
+        </div>
+    </div>
+</div>
